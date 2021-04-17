@@ -5,19 +5,18 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public int health = 100;
-    // public GameState gameState;
     public int speicalGained = 25;
     public float reachedPosition = 10f;
     public float attackRange = 2f;
+    public float moveSpeed = 200f;
     public float agroRange = 50f;
     public Transform targetPosition;
     public EnemyMovement enemyMovement;
     public Animator animator;
     public LayerMask playerLayer;
-    public int enemyDamage = 25;
+    public int enemyDamage = 5;
     public Vector3 currTargetPosition;
-    public AudioSource audioSource;
-    public AudioClip enemyDeath;
+    // public GameState gameState;
 
     Vector3 startPosition;
     Vector3 roamPosition;
@@ -31,6 +30,7 @@ public class Enemy : MonoBehaviour
         startPosition = transform.position;
         roamPosition = Util.GetRandomPosition(startPosition);
         currTargetPosition = roamPosition;
+        enemyMovement.speed = moveSpeed;
     }
 
     void Update()
@@ -62,7 +62,7 @@ public class Enemy : MonoBehaviour
                 enemyMovement.SetTarget(targetPosition.position);
 
                 var distance = Vector3.Distance(transform.position, targetPosition.position);
-                FindTarget(10);
+                FindTarget(2);
 
                 if(distance <= attackRange)
                 {
@@ -74,13 +74,17 @@ public class Enemy : MonoBehaviour
                 break;
             
             case EnemyState.ATTACKING:
+                enemyMovement.StopMove();
+                state = EnemyState.ATTACKING;
+                Attack();
+
                 break;
         }
 
         if(!animator.GetCurrentAnimatorStateInfo(0).IsName("RockyMonsterAttack"))
         {
             enemyMovement.ContinueMove();
-            FindTarget(10);
+            FindTarget(2);
         }
     }
 
@@ -116,7 +120,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void SpecialHit(int damage)
+    public void TazerHit(int damage)
     {
         health -= damage;
         // Play exploding animation
@@ -126,8 +130,6 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        // otherwise let them return back to normal
     }
 
     void Die()

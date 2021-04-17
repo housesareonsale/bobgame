@@ -63,9 +63,10 @@
     <Compile Include="Assets\Scripts\PlayerControl.cs" />
     <Compile Include="Assets\Scripts\RoomTemplates.cs" />
     <Compile Include="Assets\Scripts\PlayerFollow.cs" />
-    <Compile Include="Assets\Scripts\PlayerWeapon.cs" />
     <Compile Include="Assets\Scripts\Enums.cs" />
     <Compile Include="Assets\Scripts\Util.cs" />
+    <Compile Include="Assets\Scripts\BadMan.cs" />
+    <Compile Include="Assets\Scripts\Weapon.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
