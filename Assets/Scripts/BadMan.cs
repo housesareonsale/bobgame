@@ -10,6 +10,7 @@ public class BadMan : Enemy
     void Start()
     {
         weapon.animator = animator;
+        weapon.friendly = false;
     }
     public override void Attack()
     {

@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     public int health, maxHealth;
 
     //public Transform position;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int x){
         health -= x;
+        Debug.Log("" + x);
         if(health < 0){
             Die();
         }
@@ -34,5 +35,6 @@ public class Player : MonoBehaviour
 
     void Die(){
         Debug.Log("player died");
+        Destroy(gameObject, 0.5f);
     }
 }

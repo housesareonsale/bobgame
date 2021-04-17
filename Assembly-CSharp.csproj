@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\Util.cs" />
     <Compile Include="Assets\Scripts\BadMan.cs" />
     <Compile Include="Assets\Scripts\Weapon.cs" />
+    <Compile Include="Assets\Scripts\Player.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
