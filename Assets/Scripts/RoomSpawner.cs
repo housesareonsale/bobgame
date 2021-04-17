@@ -43,7 +43,6 @@ public class RoomSpawner : MonoBehaviour
 
             spawned = true;
         }
-
     }
 
     void OnTriggerEnter2D(Collider2D other)

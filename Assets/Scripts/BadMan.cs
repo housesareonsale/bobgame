@@ -6,6 +6,7 @@ public class BadMan : Enemy
 {
     public Weapon weapon;    
     public Transform firepoint;
+    public float accuracy;
 
     void Start()
     {
@@ -31,6 +32,8 @@ public class BadMan : Enemy
 
     void Target()
     {
-        firepoint.right = currTargetPosition - transform.position;
+        float aimx =  Random.Range(-accuracy,accuracy);
+        float aimy =  Random.Range(-accuracy,accuracy);
+        firepoint.right = currTargetPosition - transform.position + new Vector3(aimx,aimy,0);
     }
 }

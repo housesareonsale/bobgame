@@ -10,7 +10,8 @@ public class Projectile : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject gameObj = collision.gameObject;
-        GameObject other = collision.otherCollider.gameObject;
+        Debug.Log(gameObj.name);
+        Debug.Log(friendly);
         if(friendly)
         {
             // If the projectile collided with an enemy damage it
@@ -24,6 +25,7 @@ public class Projectile : MonoBehaviour
         {
             // If the projectile collided with a player damage it
             Player player = gameObj.GetComponent<Player>();
+            
             if(player != null) {
                 Debug.Log("player hit");
                 player.TakeDamage(damage);
