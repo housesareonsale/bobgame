@@ -1482,7 +1482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02cd5e9b207f3444aac50234445d485d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openingDirection: 0
+  openingDirection: 2
   spawned: 0
 --- !u!1 &2522951434363058319
 GameObject:
@@ -4561,6 +4561,7 @@ GameObject:
   - component: {fileID: 399323249028555677}
   - component: {fileID: 1768622774436788091}
   - component: {fileID: 3819442715537205382}
+  - component: {fileID: 1763858880207748833}
   m_Layer: 11
   m_Name: UDL
   m_TagString: Untagged
@@ -5348,6 +5349,18 @@ CompositeCollider2D:
       - {x: -3.978096, y: -4.4846087}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
+--- !u!114 &1763858880207748833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6654436064063336776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a065f1b4abd45284a99ef93bcd0dbbda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6807267096009417040
 GameObject:
   m_ObjectHideFlags: 0
@@ -6302,7 +6315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02cd5e9b207f3444aac50234445d485d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openingDirection: 0
+  openingDirection: 1
   spawned: 0
 --- !u!1 &8156700008321168758
 GameObject:

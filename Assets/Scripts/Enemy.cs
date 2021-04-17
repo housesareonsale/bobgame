@@ -36,7 +36,6 @@ public class Enemy : MonoBehaviour
         currTargetPosition = roamPosition;
         enemyMovement.speed = moveSpeed;
         enemyAnimator.firerate = firerate;
-        Debug.Log(enemyAnimator);
     }
 
     void Update()

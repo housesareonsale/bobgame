@@ -234,6 +234,7 @@ GameObject:
   - component: {fileID: 6511787541183334521}
   - component: {fileID: 5142903170335415455}
   - component: {fileID: 7698139180385600354}
+  - component: {fileID: -3090226200261185032}
   m_Layer: 11
   m_Name: UL
   m_TagString: Untagged
@@ -1027,6 +1028,18 @@ CompositeCollider2D:
       - {x: -4.9989414, y: -4.9971237}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
+--- !u!114 &-3090226200261185032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255971196345113260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a065f1b4abd45284a99ef93bcd0dbbda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &309741762076403770
 GameObject:
   m_ObjectHideFlags: 0

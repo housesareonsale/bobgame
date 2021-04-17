@@ -13,6 +13,7 @@ public class PlayerControl : MonoBehaviour
     public Weapon playerWeapon;
     public Camera cam;
     public Transform firepoint;
+    public Transform weaponPosition;
 
     Vector3 movement;
     Vector2 mousePointer;
@@ -72,7 +73,7 @@ public class PlayerControl : MonoBehaviour
         Vector2 moved = movement * actualMoveSpeed * Time.fixedDeltaTime;
 
         rb.MovePosition(rb.position + moved);
-        weaponRb.MovePosition(weaponRb.position + moved);
+        weaponRb.MovePosition(new Vector2(weaponPosition.position.x, weaponPosition.position.y) + moved);
 
         Vector2 pointDir = mousePointer - rb.position;
         float angle = Mathf.Atan2(pointDir.y, pointDir.x) * Mathf.Rad2Deg;

@@ -6,6 +6,7 @@ public class RoomSpawner : MonoBehaviour
 {
     public OpeningDirection openingDirection;
     public bool spawned = false;
+    public float waitTime = 4f;
 
     RoomTemplates templates;
     int rand;
@@ -14,6 +15,12 @@ public class RoomSpawner : MonoBehaviour
     {
         templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
         Invoke("Spawn", 0.1f);
+        Invoke("DeleteSpawner", waitTime);
+    }
+
+    void DeleteSpawner()
+    {
+        Destroy(gameObject);
     }
 
     void Spawn()
@@ -23,22 +30,34 @@ public class RoomSpawner : MonoBehaviour
             if(openingDirection == OpeningDirection.DOWN)
             {
                 rand = Random.Range(0, templates.downRooms.Length);
-                Instantiate(templates.downRooms[rand], transform.position, templates.downRooms[rand].transform.rotation);
+                Instantiate(
+                    templates.downRooms[rand], 
+                    new Vector3 (transform.position.x, transform.position.y, 0), 
+                    templates.downRooms[rand].transform.rotation);
             } 
             else if(openingDirection == OpeningDirection.UP)
             {
                 rand = Random.Range(0, templates.upRooms.Length);
-                Instantiate(templates.upRooms[rand], transform.position, templates.downRooms[rand].transform.rotation);
+                Instantiate(
+                    templates.upRooms[rand], 
+                    new Vector3 (transform.position.x, transform.position.y, 0), 
+                    templates.upRooms[rand].transform.rotation);
             }
             else if(openingDirection == OpeningDirection.LEFT)
             {
                 rand = Random.Range(0, templates.leftRooms.Length);
-                Instantiate(templates.leftRooms[rand], transform.position, templates.downRooms[rand].transform.rotation);
+                Instantiate(
+                    templates.leftRooms[rand], 
+                    new Vector3 (transform.position.x, transform.position.y, 0), 
+                    templates.leftRooms[rand].transform.rotation);
             }
             else if(openingDirection == OpeningDirection.RIGHT)
             {
                 rand = Random.Range(0, templates.rightRooms.Length);
-                Instantiate(templates.rightRooms[rand], transform.position, templates.downRooms[rand].transform.rotation);            
+                Instantiate(
+                    templates.rightRooms[rand], 
+                    new Vector3 (transform.position.x, transform.position.y, 0), 
+                    templates.rightRooms[rand].transform.rotation);            
             }
 
             spawned = true;
@@ -47,10 +66,16 @@ public class RoomSpawner : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("SpawnPoint") 
-            && other.GetComponent<RoomSpawner>().spawned ) 
+        if(other.CompareTag("SpawnPoint")) 
         {
-            Destroy(gameObject);
+            RoomSpawner roomSpawner = other.gameObject.GetComponent<RoomSpawner>(); 
+            if(roomSpawner && !roomSpawner.spawned && !spawned) 
+            {
+                Instantiate(templates.closedRoom, transform.position, Quaternion.identity);
+                Destroy(gameObject);
+            }
+            
+            spawned = true;
         }
     }
 }
