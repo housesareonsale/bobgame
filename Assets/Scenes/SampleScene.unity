@@ -3214,6 +3214,86 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1620483841 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5916145926252408812, guid: 8aa1bee885603f6428266f2938c035b2,
+    type: 3}
+  m_PrefabInstance: {fileID: 5916145924695785327}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1620483842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620483841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ed968744fb7a0a45899f5b919aea9f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  speicalGained: 25
+  reachedPosition: 10
+  attackRange: 2
+  agroRange: 50
+  targetPosition: {fileID: 1052329318}
+  enemyMovement: {fileID: 1620483843}
+  animator: {fileID: 1620483846}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  enemyDamage: 25
+  currTargetPosition: {x: 0, y: 0, z: 0}
+--- !u!114 &1620483843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620483841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e113476b92b0f874cacc65a5a65b04d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 200
+  nextWaypointDistance: 3
+  animator: {fileID: 1620483846}
+--- !u!114 &1620483844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620483841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 0
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask:
+    value: -1
+--- !u!95 &1620483846 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5916145926252408811, guid: 8aa1bee885603f6428266f2938c035b2,
+    type: 3}
+  m_PrefabInstance: {fileID: 5916145924695785327}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1662100898
 GameObject:
   m_ObjectHideFlags: 0
@@ -3273,7 +3353,39 @@ MonoBehaviour:
     _MeshEdgeColor: {r: 0, g: 0, b: 0, a: 0.5}
     _AreaColors:
     - {r: 0, g: 0, b: 0, a: 0}
-  tagNames: []
+  tagNames:
+  - Basic Ground
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 26
+  - 27
+  - 28
+  - 29
+  - 30
+  - 31
   heuristic: 2
   heuristicScale: 1
   threadCount: 1
@@ -7470,8 +7582,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5916145926252408810, guid: 8aa1bee885603f6428266f2938c035b2, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8aa1bee885603f6428266f2938c035b2, type: 3}
 --- !u!4 &6096313649311889449
 Transform:

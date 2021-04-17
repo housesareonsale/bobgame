@@ -8,7 +8,7 @@ public class PlayerControl : MonoBehaviour
     public float moveSpeed = 20f;
     public Rigidbody2D rb;
     public SpriteRenderer spriteRenderer;
-    public PlayerWeapon playerWeapon;
+    public Weapon playerWeapon;
     public Camera cam;
 
     Vector3 movement;
