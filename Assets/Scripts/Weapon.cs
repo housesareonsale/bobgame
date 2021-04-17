@@ -11,15 +11,21 @@ public class Weapon : MonoBehaviour
     public int damage = 1000;
     public float projectileForce = 20f;
     public Animator animator;
+    public EnemyAnimator enemyAnimator;
     public bool friendly;
 
 
     public void Shoot()
     {
-        if(!animator.GetCurrentAnimatorStateInfo(0).IsName("BoobsAttack"))
+        if(animator != null && !animator.GetCurrentAnimatorStateInfo(0).IsName("BoobsAttack"))
             animator.SetTrigger("Shoot");
 
-        GameObject bullet = Instantiate(projectile, firepoint.position, firepoint.rotation);
+        if(enemyAnimator != null)
+        {
+            enemyAnimator.TriggerShoot();
+        }
+
+        GameObject bullet = Instantiate(projectile, firepoint.position, Quaternion.identity);
 
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         Projectile bulletObj = bullet.GetComponent<Projectile>();

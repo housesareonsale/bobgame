@@ -12,10 +12,14 @@ public class Enemy : MonoBehaviour
     public float agroRange = 50f;
     public Transform targetPosition;
     public EnemyMovement enemyMovement;
-    public Animator animator;
+    public EnemyAnimator enemyAnimator;
     public LayerMask playerLayer;
     public int enemyDamage = 5;
     public Vector3 currTargetPosition;
+
+    // Unit for firerate is frame per shots, so increaing firerate will reduce the number
+    // of bullets being spawned per second by the enemy.  
+    public float firerate;
     // public GameState gameState;
 
     Vector3 startPosition;
@@ -31,6 +35,8 @@ public class Enemy : MonoBehaviour
         roamPosition = Util.GetRandomPosition(startPosition);
         currTargetPosition = roamPosition;
         enemyMovement.speed = moveSpeed;
+        enemyAnimator.firerate = firerate;
+        Debug.Log(enemyAnimator);
     }
 
     void Update()
@@ -67,24 +73,10 @@ public class Enemy : MonoBehaviour
                 if(distance <= attackRange)
                 {
                     enemyMovement.StopMove();
-                    state = EnemyState.ATTACKING;
                     Attack();
                 }
 
                 break;
-            
-            case EnemyState.ATTACKING:
-                enemyMovement.StopMove();
-                state = EnemyState.ATTACKING;
-                Attack();
-
-                break;
-        }
-
-        if(!animator.GetCurrentAnimatorStateInfo(0).IsName("RockyMonsterAttack"))
-        {
-            enemyMovement.ContinueMove();
-            FindTarget(2);
         }
     }
 
@@ -111,8 +103,6 @@ public class Enemy : MonoBehaviour
     # region Enemy Health
     public void TakeDamage(int damage)
     {
-        Debug.Log("take damage");
-        //Debug.Log(damage);
         health -= damage;
 
         if(health <= 0)

@@ -8,10 +8,13 @@ public class BadMan : Enemy
     public Transform firepoint;
     public float accuracy;
 
+    Transform enemyPosition;
+
     void Start()
     {
-        weapon.animator = animator;
+        weapon.enemyAnimator = enemyAnimator;
         weapon.friendly = false;
+        enemyPosition = GetComponent<Transform>();
     }
     public override void Attack()
     {
@@ -19,7 +22,7 @@ public class BadMan : Enemy
     }
     void EnemyAttack()
     {
-        if(!animator.GetCurrentAnimatorStateInfo(0).IsName("ShawdowBoiShoot")) {
+        if(!enemyAnimator.IsAttacking()) {
 
             Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(transform.position, attackRange, playerLayer);
             foreach(Collider2D player in hitPlayer)
@@ -35,5 +38,15 @@ public class BadMan : Enemy
         float aimx =  Random.Range(-accuracy,accuracy);
         float aimy =  Random.Range(-accuracy,accuracy);
         firepoint.right = currTargetPosition - transform.position + new Vector3(aimx,aimy,0);
+
+        if (firepoint.right.x >= 0.01f)
+        {
+            enemyPosition.localScale = new Vector3(-1f, 1f, 1f);
+        }
+        else if (firepoint.right.x <= -0.01f)
+        {
+            enemyPosition.localScale = new Vector3(1f, 1f, 1f);
+        }
+
     }
 }

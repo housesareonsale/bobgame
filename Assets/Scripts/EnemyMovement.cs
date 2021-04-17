@@ -6,7 +6,7 @@ public class EnemyMovement : MonoBehaviour
 {
     public float speed = 200f;
     public float nextWaypointDistance = 3f;
-    public Animator animator;
+    public EnemyAnimator enemyAnimator;
     Vector3 currentTarget;
     Path path;
     int currentWayPoint = 0;
@@ -28,7 +28,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if(!stopMove)
         {
-            animator.SetFloat("MoveSpeed", rb.velocity.magnitude);
+            enemyAnimator.SetMoveSpeed(rb.velocity.magnitude);
             if(path == null)
             {
 
