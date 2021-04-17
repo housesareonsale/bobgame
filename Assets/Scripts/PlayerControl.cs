@@ -19,6 +19,7 @@ public class PlayerControl : MonoBehaviour
     void Start()
     {
         playerWeapon.animator = animator;
+        playerWeapon.friendly = true;
     }
 
     void Update()

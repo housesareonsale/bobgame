@@ -11,6 +11,7 @@ public class Weapon : MonoBehaviour
     public int damage = 1000;
     public float projectileForce = 20f;
     public Animator animator;
+    public bool friendly;
 
 
     public void Shoot()
@@ -19,13 +20,12 @@ public class Weapon : MonoBehaviour
         {
             animator.SetTrigger("Shoot");
             GameObject bullet = Instantiate(projectile, firepoint.position, firepoint.rotation);
-            
 
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             Projectile bulletObj = bullet.GetComponent<Projectile>();
             //bullet.layer = LayerMask.NameToLayer("Projectile");
             bulletObj.damage = damage;
-            bulletObj.friendly = true;
+            bulletObj.friendly = friendly;
 
             // Ignores collisions with caster and collision
             Physics2D.IgnoreCollision(bullet.GetComponent<Collider2D>(), shooter.GetComponent<Collider2D>());

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2318161583002365539}
   - component: {fileID: 8834472886134382951}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: torch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,9 +42,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -92,7 +95,7 @@ GameObject:
   - component: {fileID: 924817971308546951}
   - component: {fileID: 924817971308546948}
   - component: {fileID: 924817971308546949}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wallvertical (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,9 +127,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -200,7 +206,7 @@ GameObject:
   - component: {fileID: 988758970784790482}
   - component: {fileID: 988758970784790481}
   - component: {fileID: 988758970784790480}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wallvertical (22)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,9 +238,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -308,7 +317,7 @@ GameObject:
   - component: {fileID: 999624525217427345}
   - component: {fileID: 999624525217427344}
   - component: {fileID: 999624525217427347}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wallhorizontal (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -340,9 +349,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -416,7 +428,7 @@ GameObject:
   - component: {fileID: 1275109621286254019}
   - component: {fileID: 1275109621286254018}
   - component: {fileID: 1275109621286254017}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wallhorizontal (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -448,9 +460,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -524,7 +539,7 @@ GameObject:
   - component: {fileID: 1290976575348315335}
   - component: {fileID: 1290976575348315334}
   - component: {fileID: 1290976575348315333}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wallhorizontal (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -556,9 +571,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -632,7 +650,7 @@ GameObject:
   - component: {fileID: 1292943252025212568}
   - component: {fileID: 1292943252025212571}
   - component: {fileID: 1292943252025212570}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wallvertical (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -664,9 +682,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -739,7 +760,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4606369549365650901}
   - component: {fileID: 7303859300287490769}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: torch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -771,9 +792,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -821,7 +845,7 @@ GameObject:
   - component: {fileID: 1451681198484585902}
   - component: {fileID: 1451681198484585901}
   - component: {fileID: 1451681198484585900}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wallvertical
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -853,9 +877,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -929,7 +956,7 @@ GameObject:
   - component: {fileID: 1593075482519058796}
   - component: {fileID: 1593075482519058799}
   - component: {fileID: 1593075482519058798}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wallvertical (31)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -961,9 +988,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1037,7 +1067,7 @@ GameObject:
   - component: {fileID: 1689646775575453092}
   - component: {fileID: 1689646775575453095}
   - component: {fileID: 1689646775575453094}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wallvertical (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1069,9 +1099,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1145,7 +1178,7 @@ GameObject:
   - component: {fileID: 1779860994829106511}
   - component: {fileID: 1779860994829106508}
   - component: {fileID: 1779860994829106509}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wallvertical (23)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1177,9 +1210,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1253,7 +1289,7 @@ GameObject:
   - component: {fileID: 7696452246594402437}
   - component: {fileID: 3956411613579579349}
   - component: {fileID: 3076094162535838479}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wallcorner_left (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1286,9 +1322,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1362,7 +1401,7 @@ GameObject:
   - component: {fileID: 1572588087376897612}
   - component: {fileID: 1414737988297654650}
   - component: {fileID: 3596481994015466493}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wallcorner_right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1395,9 +1434,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1471,7 +1513,7 @@ GameObject:
   - component: {fileID: 2886348998604204313}
   - component: {fileID: 2886348998604204312}
   - component: {fileID: 2886348998604204315}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wallhorizontal (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1503,9 +1545,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1579,7 +1624,7 @@ GameObject:
   - component: {fileID: 3334404238511283700}
   - component: {fileID: 3334404238511283703}
   - component: {fileID: 3334404238511283702}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wallvertical (33)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1611,9 +1656,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1687,7 +1735,7 @@ GameObject:
   - component: {fileID: 3415149940746634883}
   - component: {fileID: 3415149940746634880}
   - component: {fileID: 3415149940746634881}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wallvertical (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1719,9 +1767,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1795,7 +1846,7 @@ GameObject:
   - component: {fileID: 3713579733738998952}
   - component: {fileID: 3713579733738998953}
   - component: {fileID: 3713579733738998954}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wallhorizontal (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1827,9 +1878,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1903,7 +1957,7 @@ GameObject:
   - component: {fileID: 3771210882250529494}
   - component: {fileID: 3771210882250529493}
   - component: {fileID: 3771210882250529492}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wallvertical (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1935,9 +1989,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2011,7 +2068,7 @@ GameObject:
   - component: {fileID: 3855143915768838382}
   - component: {fileID: 3855143915768838381}
   - component: {fileID: 3855143915768838380}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wallvertical (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2043,9 +2100,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2119,7 +2179,7 @@ GameObject:
   - component: {fileID: 3869525013383577985}
   - component: {fileID: 3869525013383577986}
   - component: {fileID: 3869525013383577987}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wallvertical (21)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2151,9 +2211,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2227,7 +2290,7 @@ GameObject:
   - component: {fileID: 4355489015169326229}
   - component: {fileID: 4355489015169326228}
   - component: {fileID: 4355489015169326231}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wallhorizontal (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2259,9 +2322,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2335,7 +2401,7 @@ GameObject:
   - component: {fileID: 4380482214612709205}
   - component: {fileID: 4380482214612709204}
   - component: {fileID: 4380482214612709207}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wallhorizontal (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2367,9 +2433,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2443,7 +2512,7 @@ GameObject:
   - component: {fileID: 8216675011833225662}
   - component: {fileID: 8392354960867722888}
   - component: {fileID: 6214069986510038031}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wallcorner_right (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2476,9 +2545,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2552,7 +2624,7 @@ GameObject:
   - component: {fileID: 4755789139284492331}
   - component: {fileID: 4755789139284492328}
   - component: {fileID: 4755789139284492329}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wallvertical (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2584,9 +2656,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2660,7 +2735,7 @@ GameObject:
   - component: {fileID: 1943359011817244548}
   - component: {fileID: 574760711796118370}
   - component: {fileID: 3059068059680591007}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: DLR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3394,7 +3469,7 @@ GameObject:
   - component: {fileID: 4871883822834049795}
   - component: {fileID: 4871883822834049796}
   - component: {fileID: 4871883822834049797}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wallhorizontal (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3426,9 +3501,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3502,7 +3580,7 @@ GameObject:
   - component: {fileID: 4910375639686967995}
   - component: {fileID: 4910375639686967994}
   - component: {fileID: 4910375639686967993}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wallhorizontal (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3534,9 +3612,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3610,7 +3691,7 @@ GameObject:
   - component: {fileID: 4966021785839282114}
   - component: {fileID: 4966021785839282113}
   - component: {fileID: 4966021785839282112}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wallvertical (30)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3642,9 +3723,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3718,7 +3802,7 @@ GameObject:
   - component: {fileID: 5221125147838955047}
   - component: {fileID: 5221125147838955044}
   - component: {fileID: 5221125147838955045}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wallvertical (32)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3750,9 +3834,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3826,7 +3913,7 @@ GameObject:
   - component: {fileID: 5446510472949276700}
   - component: {fileID: 5446510472949276701}
   - component: {fileID: 5446510472949276702}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wallhorizontal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3858,9 +3945,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3933,7 +4023,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6930205955687476119}
   - component: {fileID: 4223409414092121235}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: torch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3965,9 +4055,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4015,7 +4108,7 @@ GameObject:
   - component: {fileID: 5650792774125964814}
   - component: {fileID: 5650792774125964813}
   - component: {fileID: 5650792774125964812}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wallvertical (34)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4047,9 +4140,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4123,7 +4219,7 @@ GameObject:
   - component: {fileID: 6031277479571433847}
   - component: {fileID: 6031277479571433844}
   - component: {fileID: 6031277479571433845}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wallvertical (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4155,9 +4251,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4231,7 +4330,7 @@ GameObject:
   - component: {fileID: 6158766726126066961}
   - component: {fileID: 6158766726126066962}
   - component: {fileID: 6158766726126066963}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wallvertical (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4263,9 +4362,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4339,7 +4441,7 @@ GameObject:
   - component: {fileID: 6175900843566031596}
   - component: {fileID: 6175900843566031599}
   - component: {fileID: 6175900843566031598}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wallvertical (29)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4371,9 +4473,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4447,7 +4552,7 @@ GameObject:
   - component: {fileID: 6281532570494800880}
   - component: {fileID: 6281532570494800881}
   - component: {fileID: 6281532570494800882}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wallhorizontal (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4479,9 +4584,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4555,7 +4663,7 @@ GameObject:
   - component: {fileID: 6425164969882244370}
   - component: {fileID: 6425164969882244371}
   - component: {fileID: 6425164969882244368}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wallhorizontal (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4587,9 +4695,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4663,7 +4774,7 @@ GameObject:
   - component: {fileID: 3083136974699658609}
   - component: {fileID: 8566186595415771681}
   - component: {fileID: 7689528456472016635}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wallcorner_left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4696,9 +4807,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4772,7 +4886,7 @@ GameObject:
   - component: {fileID: 6959760058458064172}
   - component: {fileID: 6959760058458064175}
   - component: {fileID: 6959760058458064174}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wallvertical (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4804,9 +4918,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4880,7 +4997,7 @@ GameObject:
   - component: {fileID: 6999831504557943898}
   - component: {fileID: 6999831504557943899}
   - component: {fileID: 6999831504557943896}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wallhorizontal (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4912,9 +5029,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4988,7 +5108,7 @@ GameObject:
   - component: {fileID: 7089729834174649659}
   - component: {fileID: 7089729834174649658}
   - component: {fileID: 7089729834174649657}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wallhorizontal (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5020,9 +5140,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -5096,7 +5219,7 @@ GameObject:
   - component: {fileID: 7328549717500318379}
   - component: {fileID: 7328549717500318378}
   - component: {fileID: 7328549717500318377}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wallhorizontal (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5128,9 +5251,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -5204,7 +5330,7 @@ GameObject:
   - component: {fileID: 7382674739047075194}
   - component: {fileID: 7382674739047075195}
   - component: {fileID: 7382674739047075192}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wallhorizontal (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5236,9 +5362,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -5312,7 +5441,7 @@ GameObject:
   - component: {fileID: 7666176144423096925}
   - component: {fileID: 7666176144423096926}
   - component: {fileID: 7666176144423096927}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wallvertical (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5344,9 +5473,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -5421,7 +5553,7 @@ GameObject:
   - component: {fileID: 56913393027752252}
   - component: {fileID: 9097343586273042405}
   - component: {fileID: 7706657033532518302}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SpawnPoint (2)
   m_TagString: SpawnPoint
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -5514,7 +5646,7 @@ GameObject:
   - component: {fileID: 7791589053296984438}
   - component: {fileID: 7791589053296984439}
   - component: {fileID: 7791589053296984436}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wallhorizontal (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5546,9 +5678,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -5623,7 +5758,7 @@ GameObject:
   - component: {fileID: 3607177136742302015}
   - component: {fileID: 5956642992032755284}
   - component: {fileID: 1263872825279979732}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SpawnPoint (1)
   m_TagString: SpawnPoint
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -5716,7 +5851,7 @@ GameObject:
   - component: {fileID: 7945849299794931145}
   - component: {fileID: 7945849299794931146}
   - component: {fileID: 7945849299794931147}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wallvertical (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5748,9 +5883,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -5824,7 +5962,7 @@ GameObject:
   - component: {fileID: 8222726382946046725}
   - component: {fileID: 8222726382946046726}
   - component: {fileID: 8222726382946046727}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wallvertical (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5856,9 +5994,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -5932,7 +6073,7 @@ GameObject:
   - component: {fileID: 8318411045667008971}
   - component: {fileID: 8318411045667008968}
   - component: {fileID: 8318411045667008969}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wallvertical (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5964,9 +6105,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -6039,7 +6183,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6356996179592749607}
   - component: {fileID: 182694565082836259}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: torch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6071,9 +6215,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -6122,7 +6269,7 @@ GameObject:
   - component: {fileID: 746103891699640599}
   - component: {fileID: 4237474964048406903}
   - component: {fileID: 521939342368890736}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SpawnPoint (3)
   m_TagString: SpawnPoint
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -6215,7 +6362,7 @@ GameObject:
   - component: {fileID: 8483918780343978193}
   - component: {fileID: 8483918780343978192}
   - component: {fileID: 8483918780343978195}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wallhorizontal (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6247,9 +6394,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -6323,7 +6473,7 @@ GameObject:
   - component: {fileID: 8672413110563552607}
   - component: {fileID: 8672413110563552604}
   - component: {fileID: 8672413110563552605}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wallvertical (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6355,9 +6505,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -6431,7 +6584,7 @@ GameObject:
   - component: {fileID: 9153226450372286632}
   - component: {fileID: 9153226450372286635}
   - component: {fileID: 9153226450372286634}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wallvertical (35)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6463,9 +6616,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

@@ -112,6 +112,7 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         Debug.Log("take damage");
+        //Debug.Log(damage);
         health -= damage;
 
         if(health <= 0)
@@ -135,8 +136,7 @@ public class Enemy : MonoBehaviour
     void Die()
     {
         // gameState.EnemyDied(speicalGained);
-                Debug.Log("die");
-        audioSource.PlayOneShot(enemyDeath, 0.10f);
+        // audioSource.PlayOneShot(enemyDeath, 0.10f);
         Destroy(gameObject, 0.5f);
     }
     # endregion
