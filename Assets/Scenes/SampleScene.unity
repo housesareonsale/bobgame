@@ -1818,7 +1818,7 @@ MonoBehaviour:
     type: 3}
   shooter: {fileID: 1052329312}
   damage: 50
-  projectileForce: 10
+  projectileForce: 5
   animator: {fileID: 0}
 --- !u!1 &1089346699
 GameObject:

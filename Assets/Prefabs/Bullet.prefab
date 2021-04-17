@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5531980499796972603}
   - component: {fileID: 1618103125615727567}
   - component: {fileID: 8885458017120295917}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,9 +45,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -133,4 +136,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b41f504b77efd5142beb1d9282c07e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  friendly: 0
   damage: 0
