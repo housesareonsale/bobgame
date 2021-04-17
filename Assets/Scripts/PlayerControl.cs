@@ -30,9 +30,12 @@ public class PlayerControl : MonoBehaviour
         movement.y = Input.GetAxisRaw("Vertical");
 
         //hugh.normalize(bitch)
-        float magn = (float) Math.Sqrt(Math.Pow(movement.x,2) + Math.Pow(movement.y,2));
-        movement.x /= magn;
-        movement.y /= magn;
+        if(!(movement.x == 0 && movement.y == 0))
+        {
+            float magn = (float) Math.Sqrt(Math.Pow(movement.x,2) + Math.Pow(movement.y,2));
+            movement.x /= magn;
+            movement.y /= magn;
+        }
 
         isShooting = !animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerShoot");
         mousePointer = cam.ScreenToWorldPoint(Input.mousePosition);
@@ -45,7 +48,7 @@ public class PlayerControl : MonoBehaviour
             Attack();
         }
 
-        if(movement.x != 0 || movement.y != 0) 
+        if(Mathf.Abs(movement.x) >= 0.01 || Mathf.Abs(movement.y) >= 0.01) 
         {
             animator.SetFloat("MoveSpeed", moveSpeed);
         }
@@ -67,6 +70,7 @@ public class PlayerControl : MonoBehaviour
 
         float actualMoveSpeed = moveSpeed;
         Vector2 moved = movement * actualMoveSpeed * Time.fixedDeltaTime;
+
         rb.MovePosition(rb.position + moved);
         weaponRb.MovePosition(weaponRb.position + moved);
 
