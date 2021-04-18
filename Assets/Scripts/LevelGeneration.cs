@@ -6,15 +6,14 @@ public class LevelGeneration : MonoBehaviour
 {
     public GameObject[] rooms; // 0 - LR | 1 - DLR | 2 - ULR | 3 - UDLR
     public LayerMask roomLayer;
-    // Suggested start possitions are 
-    // {{-5,15}, {5, 15}, {15, 15}, {25, 15}}
     int[,] possibleStartPositions = new int[2, 2] { {5, 15}, {15, 15} };
     public float startTimeBetweenRoom = 0.25f;
     int direction; // 0,1 -> left | 2 -> down | 3,4 -> right
     public float moveAmount = 10; // this is the lenght and widht of the room
+    public bool stopGeneration;
 
+    Transform finalRoomPosition;
     float timeBetweenRoom;
-    bool stopGeneration;
     int downCounter;
 
     void Start()
@@ -35,6 +34,12 @@ public class LevelGeneration : MonoBehaviour
         else
         {
             timeBetweenRoom -= Time.deltaTime;
+        }
+
+        if(stopGeneration)
+        {
+            // Generate the elevator before destroying this object
+            Destroy(gameObject);
         }
     }
 
@@ -88,6 +93,7 @@ public class LevelGeneration : MonoBehaviour
             }
             else
             {
+                finalRoomPosition = transform;
                 stopGeneration = true;
             }
         }

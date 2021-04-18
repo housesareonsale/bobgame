@@ -61,20 +61,18 @@
     <Compile Include="Assets\Scripts\EnemyParts.cs" />
     <Compile Include="Assets\Scripts\EnemyAnimator.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
-    <Compile Include="Assets\Scripts\RoomSpawner.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\EnemyMovement.cs" />
     <Compile Include="Assets\Scripts\PlayerControl.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
-    <Compile Include="Assets\Scripts\RoomTemplates.cs" />
     <Compile Include="Assets\Scripts\PlayerFollow.cs" />
     <Compile Include="Assets\Scripts\EnemySpriteGenerator.cs" />
     <Compile Include="Assets\Scripts\Enums.cs" />
     <Compile Include="Assets\Scripts\Weapon.cs" />
-    <Compile Include="Assets\Scripts\AddRoom.cs" />
     <Compile Include="Assets\Scripts\Util.cs" />
     <Compile Include="Assets\Scripts\LevelGeneration.cs" />
     <Compile Include="Assets\Scripts\RoomType.cs" />
+    <Compile Include="Assets\Scripts\SpawnRoom.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
