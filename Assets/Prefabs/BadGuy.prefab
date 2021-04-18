@@ -117,7 +117,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3823b2f50264de149a1be38d116213c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyParts: {fileID: 0}
+  enemyParts: {fileID: 5549486202514555529, guid: 6aac36b1e35ad34488dd5816378c7fca,
+    type: 3}
   enemyPart: 0
   animator: {fileID: 3558746731290322659}
 --- !u!1 &3558746731613839159
@@ -305,9 +306,9 @@ MonoBehaviour:
   health: 100
   speicalGained: 25
   reachedPosition: 10
-  attackRange: 5
+  attackRange: 4
   moveSpeed: 200
-  agroRange: 10
+  agroRange: 8
   targetPosition: {fileID: 0}
   enemyMovement: {fileID: 3558746731613839164}
   enemyAnimator: {fileID: 3558746731613839165}
@@ -456,7 +457,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3823b2f50264de149a1be38d116213c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyParts: {fileID: 0}
+  enemyParts: {fileID: 5549486202514555529, guid: 6aac36b1e35ad34488dd5816378c7fca,
+    type: 3}
   enemyPart: 1
   animator: {fileID: 3558746732355164319}
 --- !u!1 &3558746732859653660
@@ -606,6 +608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3823b2f50264de149a1be38d116213c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyParts: {fileID: 0}
+  enemyParts: {fileID: 5549486202514555529, guid: 6aac36b1e35ad34488dd5816378c7fca,
+    type: 3}
   enemyPart: 2
   animator: {fileID: 3558746733089572873}

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class GameController : MonoBehaviour
 {   
@@ -10,12 +11,22 @@ public class GameController : MonoBehaviour
     public Transform playerLocation;
     void Start()
     {
+        Invoke("UpdateGraph", 5f);
         InvokeRepeating("SpawnEnemiesConstant", 10f, 10f);
+    }
+
+    void UpdateGraph()
+    {
+        // Reload the graph after 5 seconds of loading the screen
+        // This is because the map is generated, so enemies try
+        // to go through obstacles
+        var graphToScan = AstarPath.active.data.gridGraph;
+        AstarPath.active.Scan(graphToScan);
     }
 
     void SpawnEnemiesConstant()
     {
-        SpawnEnemies(5, 8f, 13f);
+        SpawnEnemies(5);
     }
 
     public void SpawnEnemies(int numEnemiesToSpawn = 0, float startRange = 8f, float endRange = 13f)
