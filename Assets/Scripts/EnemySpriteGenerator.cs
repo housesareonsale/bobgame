@@ -10,6 +10,10 @@ public class EnemySpriteGenerator : MonoBehaviour
 
     void Start()
     {
+        Debug.Log(enemyParts);
+        Debug.Log(enemyParts.face);
+        Debug.Log(enemyParts.body);
+        Debug.Log(enemyParts.leg);
         if(enemyPart == EnemyPart.FACE)
         {
             animator.runtimeAnimatorController = enemyParts.face[Random.Range(0, enemyParts.face.Length)].runtimeAnimatorController;

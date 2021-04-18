@@ -7763,3 +7763,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openingDirection: 0
   spawned: 0
+  waitTime: 4

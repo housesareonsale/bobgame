@@ -3967,6 +3967,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openingDirection: 3
   spawned: 0
+  waitTime: 4
 --- !u!1 &4372653822963717080
 GameObject:
   m_ObjectHideFlags: 0
@@ -5784,6 +5785,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openingDirection: 1
   spawned: 0
+  waitTime: 4
 --- !u!1 &7196481071086177489
 GameObject:
   m_ObjectHideFlags: 0
