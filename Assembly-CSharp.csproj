@@ -72,6 +72,8 @@
     <Compile Include="Assets\Scripts\RoomType.cs" />
     <Compile Include="Assets\Scripts\Weapon.cs" />
     <Compile Include="Assets\Scripts\Util.cs" />
+    <Compile Include="Assets\Scripts\Elevator.cs" />
+    <Compile Include="Assets\Scripts\SprayGuy.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

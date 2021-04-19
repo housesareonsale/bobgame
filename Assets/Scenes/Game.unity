@@ -17802,6 +17802,7 @@ MonoBehaviour:
   projectileForce: 5
   animator: {fileID: 1625618353}
   enemyAnimator: {fileID: 0}
+  projectileDuration: 2
   friendly: 0
 --- !u!114 &1052329320
 MonoBehaviour:
