@@ -26,7 +26,7 @@ public class Weapon : MonoBehaviour
             enemyAnimator.TriggerShoot();
         }
 
-        GameObject bullet = Instantiate(projectile, firepoint.position, Quaternion.identity);
+        GameObject bullet = Instantiate(projectile, firepoint.position, firepoint.rotation);
 
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         Projectile bulletObj = bullet.GetComponent<Projectile>();

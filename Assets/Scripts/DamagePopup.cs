@@ -1,0 +1,17 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
+
+public class DamagePopup : MonoBehaviour
+{
+    TextMeshPro textMesh;
+    void Await()
+    {
+        textMesh = transform.GetComponent<TextMeshPro>();
+    }
+    public void Setup(int damageAmount)
+    {
+        textMesh.SetText(damageAmount.ToString());
+    }
+}

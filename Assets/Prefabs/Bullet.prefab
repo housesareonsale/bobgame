@@ -139,3 +139,5 @@ MonoBehaviour:
   friendly: 0
   damage: 0
   projectileDuration: 2
+  collisionParticle: {fileID: 1387640231194966635, guid: 64f7553ca191dca4cbef2cf148c5f718,
+    type: 3}

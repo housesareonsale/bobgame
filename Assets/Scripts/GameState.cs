@@ -10,6 +10,8 @@ public class GameState : ScriptableObject
     public int maxNumEnemies;
     public GameController gameController;
     public Transform playerLocation;
+    public int attackIncreased;
+    public float firerateIncreased;
 
 
     public int currentCurreny = 0;
@@ -42,5 +44,17 @@ public class GameState : ScriptableObject
 
     public void MainScreen(){
         SceneManager.LoadScene("Main Screen");
+    }
+
+    public void UpgradePlayerAttack()
+    {
+        attackIncreased += 7;
+        gameController.UpgradePlayerAttack();
+    }
+
+    public void UpgradePlayerFireRate()
+    {
+        firerateIncreased += 0.08f;
+        gameController.UpgradePlayerFireRate();
     }
 }

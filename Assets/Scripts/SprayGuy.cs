@@ -23,6 +23,7 @@ public class SprayGuy : Enemy
     {
         EnemyAttack();
     }
+
     void EnemyAttack()
     {
         if (!enemyAnimator.IsAttacking())

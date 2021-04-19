@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
+using TMPro;
 
 public class GameController : MonoBehaviour
 {
     public GameObject badMan;
+    public GameObject sprayMan;
     public PlayerControl playerControl;
+    public TextMeshProUGUI floor;
     public GameState gameState;
 
     int maxNumEnemies;
@@ -17,15 +20,17 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("Game controller started with " + gameState.gameFloor.ToString());
         gameState.gameController = gameObject.GetComponent<GameController>();
         gameState.playerLocation = playerControl.transform;
         gameFloor = gameState.gameFloor;
+        floor.text = "Floor " + gameState.gameFloor.ToString();
         maxNumEnemies = gameState.maxNumEnemies;
         currNumEnemies = 0;
+        playerControl.playerWeapon.damage += gameState.attackIncreased;
+        playerControl.fireRate += gameState.firerateIncreased;
 
         Invoke("UpdateGraph", 5f);
-        InvokeRepeating("SpawnEnemiesConstant", 10f, 10f);
+        InvokeRepeating("SpawnEnemiesConstant", 5f, 10f);
     }
 
     void UpdateGraph()
@@ -64,10 +69,12 @@ public class GameController : MonoBehaviour
         for(int i = 0; i < enemiesSpawned; i++) {
             Vector3 spawnLocation = Util.GetRandomPosition(playerControl.transform.position, startRange, endRange);
 
-            // int rand = Random.Range(0, 4);
+            int rand = Random.Range(0, 4);
             // 20% chance to spawn a skull girl
             // 80% chance to spawn a rocky monster 
-            GameObject enemy =  Instantiate(badMan, spawnLocation, Quaternion.identity);
+            GameObject enemy =  rand == 0 ? 
+                Instantiate(sprayMan, spawnLocation, Quaternion.identity) : 
+                Instantiate(badMan, spawnLocation, Quaternion.identity);
 
             // half the size of the enemies because they use sprite stiching which make them appear bigger
             // scaling is also done in EnemyMovement at the end of FixedUpdate so make sure to change that if
@@ -93,5 +100,15 @@ public class GameController : MonoBehaviour
     {
         // play enemy death music here
         currNumEnemies -= 1;
+    }
+
+    public void UpgradePlayerAttack()
+    {
+        playerControl.playerWeapon.damage += 7;
+    }
+
+    public void UpgradePlayerFireRate()
+    {
+        playerControl.fireRate += 0.08f;
     }
 }

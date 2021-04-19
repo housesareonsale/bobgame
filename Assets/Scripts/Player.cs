@@ -4,39 +4,42 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public int health, maxHealth;
+    public int health;
+    public int maxHealth;
     public GameState gamestate;
     public GameObject healthBar;
+    public float healthBarXPos;
 
-    //public Transform position;
-
-    // Start is called before the first frame update
     void Start()
     {
-        maxHealth = health = 100;
-
+        health = maxHealth;
+        healthBarXPos = healthBar.transform.position.x;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void TakeDamage(int damage)
     {
-        
-    }
+        health -= damage;
+        float amount = (health) / (float)maxHealth;
 
-    public void TakeDamage(int x){
-        health -= x;
-        healthBar.transform.localScale = new Vector3((health) / 100f, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
+        healthBar.transform.localScale = new Vector3(
+            amount, 
+            healthBar.transform.localScale.y, 
+            healthBar.transform.localScale.z
+        );
+
         if(health < 0){
             Die();
         }
     }
 
-    public void ResetHealth(){
-        health=maxHealth;
+    public void ResetHealth()
+    {
+        health = maxHealth;
     }
 
-    void Die(){
-        gamestate.LoseGame();
+    void Die()
+    {
+        // gamestate.LoseGame();
     }
 
 }

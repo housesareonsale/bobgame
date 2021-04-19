@@ -10,14 +10,14 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Floor
   - Water
   - UI
   - 
   - 
   - Player
   - Enemy
-  - Floor
+  - 
   - Obstacle
   - Projectile
   - Room

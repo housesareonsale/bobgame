@@ -15,6 +15,9 @@ public class PlayerControl : MonoBehaviour
     public Transform firepoint;
     public Transform weaponPosition;
     public bool levelGenerationDone = false;
+    public float fireRate = 0.5f;
+    public float maxTime = 8f;
+    public float timer = 8f; 
 
     Vector3 movement;
     Vector2 mousePointer;
@@ -44,6 +47,8 @@ public class PlayerControl : MonoBehaviour
             isShooting = !animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerShoot");
             mousePointer = cam.ScreenToWorldPoint(Input.mousePosition);
 
+            Debug.Log("player attack is now " + playerWeapon.damage.ToString());
+            Debug.Log("firerate is now " + fireRate.ToString());
         }
     }
 
@@ -51,6 +56,11 @@ public class PlayerControl : MonoBehaviour
     {
         if(levelGenerationDone)
         {
+            if(timer > 0)
+            {
+                timer -= fireRate;
+            }
+
             if(Input.GetButton("Fire1"))
             {
                 Attack();
@@ -90,10 +100,11 @@ public class PlayerControl : MonoBehaviour
 
     void Attack()
     {
-        if(!animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerShoot"))
+        if(timer <= 0)
         {
             animator.SetTrigger("Shoot");
             playerWeapon.Shoot();
+            timer = maxTime;
         }
     }
 }

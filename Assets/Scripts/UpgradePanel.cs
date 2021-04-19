@@ -2,28 +2,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UpgradePanel : MonoBehaviour
 {
     public GameState gamestate;
     public GameObject panel;
-    public GameObject points;
-    public GameObject Upgrade1;
-    public GameObject Upgrade2;
+    public TextMeshProUGUI points;
+    public TextMeshProUGUI attack;
+    public TextMeshProUGUI firerate;
+    public int attackcost;
+    public int fireratecost;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        //points.Text = ""+gamestate.currentCurreny;
+        points.text = gamestate.currentCurreny + " points";
+    }
 
-     points.GetComponent<UnityEngine.UI.Text>().text = "points = "+gamestate.currentCurreny;
-
-
+    public void OnAttackUpgrade()
+    {
+        if(attackcost <= gamestate.currentCurreny)
+        {
+            gamestate.currentCurreny -= attackcost;
+            gamestate.UpgradePlayerAttack();
+            attackcost *= 2;
+            attack.text = "damage\n" + attackcost.ToString();
+        }
+    }
+    public void OnFireRateUpgrade()
+    {
+        if(fireratecost <= gamestate.currentCurreny)
+        {
+            gamestate.currentCurreny -= fireratecost;
+            gamestate.UpgradePlayerFireRate();
+            fireratecost *= 2;
+            firerate.text = "firerate\n" + fireratecost.ToString();
+        }
     }
 }

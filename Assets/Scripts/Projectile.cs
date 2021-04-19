@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour
     public bool friendly;
     public int damage;
     public float projectileDuration;
+    public GameObject collisionParticle;
 
     private void Start()
     {
@@ -41,6 +42,9 @@ public class Projectile : MonoBehaviour
     void DestroyProjectile()
     {
         // play some sound effect / add particle effects
+        Debug.Log("goint to destroy this projectile");
+        GameObject particle = Instantiate(collisionParticle, transform.position, Quaternion.identity);
+        Destroy(particle, 1f);
         Destroy(gameObject);
     }
 }
