@@ -16,12 +16,15 @@ public class Enemy : MonoBehaviour
     public LayerMask playerLayer;
     public int enemyDamage = 5;
     public Vector3 currTargetPosition;
+    public GameState gameState;
+    public int currenyDrop = 20;
+    public GameObject healthBar;
 
     // Unit for firerate is frame per shots, so increaing firerate will reduce the number
     // of bullets being spawned per second by the enemy.  
     public float firerate;
-    // public GameState gameState;
 
+    bool isDead = false;
     Vector3 startPosition;
     Vector3 roamPosition;
     EnemyState state = EnemyState.ROAMING;
@@ -103,8 +106,8 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
-
-        if(health <= 0)
+        healthBar.transform.localScale = new Vector3((health) / 100f, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
+        if (health <= 0)
         {
             Die();
         }
@@ -124,9 +127,12 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
-        // gameState.EnemyDied(speicalGained);
-        // audioSource.PlayOneShot(enemyDeath, 0.10f);
-        Destroy(gameObject, 0.5f);
+        if(!isDead)
+        {
+            gameState.EnemyDied(currenyDrop);
+            Destroy(gameObject, 0.1f);
+            isDead = true;
+        }
     }
     # endregion
 }

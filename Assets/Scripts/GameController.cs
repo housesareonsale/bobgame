@@ -4,13 +4,26 @@ using UnityEngine;
 using Pathfinding;
 
 public class GameController : MonoBehaviour
-{   
-    // TODO: add random enemy generation script here
-    // also anything to do with controlling the game
+{
     public GameObject badMan;
-    public Transform playerLocation;
+    public PlayerControl playerControl;
+    public GameState gameState;
+
+    int maxNumEnemies;
+    int gameFloor;
+    int currNumEnemies;
+
+    Transform finalRoomPosition;
+
     void Start()
     {
+        Debug.Log("Game controller started with " + gameState.gameFloor.ToString());
+        gameState.gameController = gameObject.GetComponent<GameController>();
+        gameState.playerLocation = playerControl.transform;
+        gameFloor = gameState.gameFloor;
+        maxNumEnemies = gameState.maxNumEnemies;
+        currNumEnemies = 0;
+
         Invoke("UpdateGraph", 5f);
         InvokeRepeating("SpawnEnemiesConstant", 10f, 10f);
     }
@@ -34,27 +47,51 @@ public class GameController : MonoBehaviour
         int enemiesSpawned = 0;
         if(numEnemiesToSpawn == 0)
         {
-            // Add this to game state so there aren't infinite enemies
+            enemiesSpawned = Random.Range(3,5);
         }
         else
         {
             enemiesSpawned = numEnemiesToSpawn;
         }
 
+        if(currNumEnemies + enemiesSpawned >= maxNumEnemies)
+        {
+            enemiesSpawned = maxNumEnemies - currNumEnemies;
+        }
+
+        currNumEnemies += enemiesSpawned; 
+
         for(int i = 0; i < enemiesSpawned; i++) {
-            Vector3 spawnLocation = Util.GetRandomPosition(playerLocation.position, startRange, endRange);
+            Vector3 spawnLocation = Util.GetRandomPosition(playerControl.transform.position, startRange, endRange);
 
             // int rand = Random.Range(0, 4);
             // 20% chance to spawn a skull girl
             // 80% chance to spawn a rocky monster 
             GameObject enemy =  Instantiate(badMan, spawnLocation, Quaternion.identity);
 
+            // half the size of the enemies because they use sprite stiching which make them appear bigger
+            // scaling is also done in EnemyMovement at the end of FixedUpdate so make sure to change that if
+            // any changes to scale have to be made
+            enemy.transform.localScale = new Vector3(0.5f, 0.5f, 1f);
+
             Enemy enemyObj = enemy.GetComponent<Enemy>();
             if(enemyObj != null)
             {
-                enemyObj.targetPosition = playerLocation;
+                enemyObj.targetPosition = playerControl.transform;
             }
         }
     }
 
+    public void LevelGenerationComplete(GameObject finalRoom)
+    {
+        RoomType room = finalRoom.GetComponent<RoomType>();
+        room.GenerateElevator();
+        playerControl.levelGenerationDone = true;
+    }
+
+    public void EnemyDied()
+    {
+        // play enemy death music here
+        currNumEnemies -= 1;
+    }
 }

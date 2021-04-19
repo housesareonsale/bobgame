@@ -6,6 +6,12 @@ public class Projectile : MonoBehaviour
 {
     public bool friendly;
     public int damage;
+    public float projectileDuration;
+
+    private void Start()
+    {
+        Invoke("DestroyProjectile", projectileDuration);
+    }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -29,9 +35,12 @@ public class Projectile : MonoBehaviour
             }
         }
 
-        Destroy(gameObject);
-
+        DestroyProjectile();
     }
 
-   
+    void DestroyProjectile()
+    {
+        // play some sound effect / add particle effects
+        Destroy(gameObject);
+    }
 }

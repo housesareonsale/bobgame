@@ -5,6 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public int health, maxHealth;
+    public GameState gamestate;
+    public GameObject healthBar;
 
     //public Transform position;
 
@@ -23,6 +25,7 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int x){
         health -= x;
+        healthBar.transform.localScale = new Vector3((health) / 100f, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
         if(health < 0){
             Die();
         }
@@ -34,6 +37,6 @@ public class Player : MonoBehaviour
 
     void Die(){
         Debug.Log("player died");
-        // Destroy(gameObject, 0.5f);
+        gamestate.LoseGame();
     }
 }

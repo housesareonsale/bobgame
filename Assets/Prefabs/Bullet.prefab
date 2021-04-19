@@ -138,3 +138,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   friendly: 0
   damage: 0
+  projectileDuration: 2

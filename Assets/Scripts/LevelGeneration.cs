@@ -11,16 +11,20 @@ public class LevelGeneration : MonoBehaviour
     int direction; // 0,1 -> left | 2 -> down | 3,4 -> right
     public float moveAmount = 10; // this is the lenght and widht of the room
     public bool stopGeneration;
+    public GameState gamestate;
 
-    Transform finalRoomPosition;
+    GameController gameController;
+    GameObject lastestRoom;
     float timeBetweenRoom;
     int downCounter;
 
     void Start()
     {
         int randIndex = Random.Range(0, 2);
+        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         transform.position = new Vector2(possibleStartPositions[randIndex,0], possibleStartPositions[randIndex,1]);
-        Instantiate(rooms[0], transform.position, Quaternion.identity);
+        lastestRoom = Instantiate(rooms[0], transform.position, Quaternion.identity);
+        gamestate.playerLocation.position = transform.position;
         direction = Random.Range(0, 5);
     }
 
@@ -35,12 +39,6 @@ public class LevelGeneration : MonoBehaviour
         {
             timeBetweenRoom -= Time.deltaTime;
         }
-
-        if(stopGeneration)
-        {
-            // Generate the elevator before destroying this object
-            Destroy(gameObject);
-        }
     }
 
     void Move()
@@ -52,7 +50,7 @@ public class LevelGeneration : MonoBehaviour
                 downCounter = 0;
                 transform.position =  new Vector2(transform.position.x + moveAmount, transform.position.y);
                 int rand = Random.Range(0, rooms.Length);
-                Instantiate( rooms[rand], transform.position, Quaternion.identity );
+                lastestRoom = Instantiate( rooms[rand], transform.position, Quaternion.identity );
 
                 direction = Random.Range(0, 3);
             }
@@ -75,26 +73,27 @@ public class LevelGeneration : MonoBehaviour
 
                     if (downCounter >= 2)
                     {
-                        Instantiate( rooms[3], transform.position, Quaternion.identity );
+                        lastestRoom = Instantiate( rooms[3], transform.position, Quaternion.identity );
                     }
                     else
                     {
                         int randomBottomRoom = Random.Range(1, 4);
                         if(randomBottomRoom == 2) randomBottomRoom = 1;
-                        Instantiate( rooms[randomBottomRoom], transform.position, Quaternion.identity );
+                        lastestRoom = Instantiate( rooms[randomBottomRoom], transform.position, Quaternion.identity );
                     }
                 }
 
                 transform.position =  new Vector2(transform.position.x, transform.position.y - moveAmount);
                 int rand = Random.Range(2, 4);
-                Instantiate( rooms[rand], transform.position, Quaternion.identity );
+                lastestRoom = Instantiate( rooms[rand], transform.position, Quaternion.identity );
 
                 direction = Random.Range(0, 5);
             }
             else
             {
-                finalRoomPosition = transform;
+                gameController.LevelGenerationComplete(lastestRoom);
                 stopGeneration = true;
+                DestroyLevelGenerationObject();
             }
         }
         else if (direction == 3 || direction == 4) // MOVE LEFT
@@ -104,7 +103,7 @@ public class LevelGeneration : MonoBehaviour
                 downCounter = 0;
                 transform.position =  new Vector2(transform.position.x - moveAmount, transform.position.y);
                 int rand = Random.Range(0, rooms.Length);
-                Instantiate( rooms[rand], transform.position, Quaternion.identity );
+                lastestRoom = Instantiate( rooms[rand], transform.position, Quaternion.identity );
 
                 direction = Random.Range(2, 5);
             }
@@ -113,5 +112,10 @@ public class LevelGeneration : MonoBehaviour
                 direction = 2;
             }
         }
+    }
+
+    void DestroyLevelGenerationObject()
+    {
+        Destroy(gameObject);
     }
 }
