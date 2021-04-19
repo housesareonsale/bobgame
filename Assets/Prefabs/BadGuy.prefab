@@ -152,9 +152,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3558746731613839159}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.5, y: 3.72, z: -0.9684412}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3558746731290322656}
   - {fileID: 3558746732355164316}
@@ -317,6 +317,8 @@ MonoBehaviour:
     m_Bits: 256
   enemyDamage: 5
   currTargetPosition: {x: 0, y: 0, z: 0}
+  gameState: {fileID: 11400000, guid: 8a34a671fc7cefe438a2154dc7f952d5, type: 2}
+  currenyDrop: 20
   firerate: 0.5
   weapon: {fileID: 3558746731613839166}
   firepoint: {fileID: 3558746732859653661}

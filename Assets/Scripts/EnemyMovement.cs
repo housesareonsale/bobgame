@@ -52,14 +52,7 @@ public class EnemyMovement : MonoBehaviour
                 currentWayPoint++;
             }
 
-            if (force.x >= 0.01f)
-            {
-                enemyPosition.localScale = new Vector3(-1f, 1f, 1f);
-            }
-            else if (force.x <= -0.01f)
-            {
-                enemyPosition.localScale = new Vector3(1f, 1f, 1f);
-            }
+            ScaleEnemy(force.x >= 0.01f, force.x <= -0.01f);
         }
     }
 
@@ -92,5 +85,18 @@ public class EnemyMovement : MonoBehaviour
     public void ContinueMove()
     {
         stopMove = false;
+    }
+
+    public void ScaleEnemy(bool rightCondition, bool leftCondition)
+    {
+        if(rightCondition)
+        {
+            enemyPosition.localScale = new Vector3(-0.5f, 0.5f, 1f);
+        }
+        else if(leftCondition)
+        {
+            enemyPosition.localScale = new Vector3(0.5f, 0.5f, 1f);
+        }
+
     }
 }

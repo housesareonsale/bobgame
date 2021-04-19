@@ -14,6 +14,7 @@ public class PlayerControl : MonoBehaviour
     public Camera cam;
     public Transform firepoint;
     public Transform weaponPosition;
+    public bool levelGenerationDone = false;
 
     Vector3 movement;
     Vector2 mousePointer;
@@ -27,57 +28,64 @@ public class PlayerControl : MonoBehaviour
 
     void Update()
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-
-        //hugh.normalize(bitch)
-        if(!(movement.x == 0 && movement.y == 0))
+        if(levelGenerationDone)
         {
-            float magn = (float) Math.Sqrt(Math.Pow(movement.x,2) + Math.Pow(movement.y,2));
-            movement.x /= magn;
-            movement.y /= magn;
-        }
+            movement.x = Input.GetAxisRaw("Horizontal");
+            movement.y = Input.GetAxisRaw("Vertical");
 
-        isShooting = !animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerShoot");
-        mousePointer = cam.ScreenToWorldPoint(Input.mousePosition);
+            //hugh.normalize(bitch)
+            if(!(movement.x == 0 && movement.y == 0))
+            {
+                float magn = (float) Math.Sqrt(Math.Pow(movement.x,2) + Math.Pow(movement.y,2));
+                movement.x /= magn;
+                movement.y /= magn;
+            }
+
+            isShooting = !animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerShoot");
+            mousePointer = cam.ScreenToWorldPoint(Input.mousePosition);
+
+        }
     }
 
     void FixedUpdate()
     {
-        if(Input.GetButton("Fire1"))
+        if(levelGenerationDone)
         {
-            Attack();
-        }
+            if(Input.GetButton("Fire1"))
+            {
+                Attack();
+            }
 
-        if(Mathf.Abs(movement.x) >= 0.01 || Mathf.Abs(movement.y) >= 0.01) 
-        {
-            animator.SetFloat("MoveSpeed", moveSpeed);
-        }
-        else
-        {
-            animator.SetFloat("MoveSpeed", 0f);
-        }
+            if(Mathf.Abs(movement.x) >= 0.01 || Mathf.Abs(movement.y) >= 0.01) 
+            {
+                animator.SetFloat("MoveSpeed", moveSpeed);
+            }
+            else
+            {
+                animator.SetFloat("MoveSpeed", 0f);
+            }
 
-        if(movement.x > 0.01 && !facingRight)
-        {
-            spriteRenderer.flipX = false;
-            facingRight = true;
+            if(movement.x > 0.01 && !facingRight)
+            {
+                spriteRenderer.flipX = false;
+                facingRight = true;
+            }
+            else if (movement.x < -0.01 && facingRight)
+            {
+                spriteRenderer.flipX = true;
+                facingRight = false;
+            }
+
+            float actualMoveSpeed = moveSpeed;
+            Vector2 moved = movement * actualMoveSpeed * Time.fixedDeltaTime;
+
+            rb.MovePosition(rb.position + moved);
+            weaponRb.MovePosition(new Vector2(weaponPosition.position.x, weaponPosition.position.y) + moved);
+
+            Vector2 pointDir = mousePointer - rb.position;
+            float angle = Mathf.Atan2(pointDir.y, pointDir.x) * Mathf.Rad2Deg;
+            weaponRb.rotation = angle;
         }
-        else if (movement.x < -0.01 && facingRight)
-        {
-            spriteRenderer.flipX = true;
-            facingRight = false;
-        }
-
-        float actualMoveSpeed = moveSpeed;
-        Vector2 moved = movement * actualMoveSpeed * Time.fixedDeltaTime;
-
-        rb.MovePosition(rb.position + moved);
-        weaponRb.MovePosition(new Vector2(weaponPosition.position.x, weaponPosition.position.y) + moved);
-
-        Vector2 pointDir = mousePointer - rb.position;
-        float angle = Mathf.Atan2(pointDir.y, pointDir.x) * Mathf.Rad2Deg;
-        weaponRb.rotation = angle;
     }
 
     void Attack()

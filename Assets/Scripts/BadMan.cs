@@ -39,14 +39,6 @@ public class BadMan : Enemy
         float aimy =  Random.Range(-accuracy,accuracy);
         firepoint.right = currTargetPosition - transform.position + new Vector3(aimx,aimy,0);
 
-        if (firepoint.right.x >= 0.01f)
-        {
-            enemyPosition.localScale = new Vector3(-1f, 1f, 1f);
-        }
-        else if (firepoint.right.x <= -0.01f)
-        {
-            enemyPosition.localScale = new Vector3(1f, 1f, 1f);
-        }
-
+        enemyMovement.ScaleEnemy(firepoint.right.x >= 0.01f, firepoint.right.x <= -0.01f);
     }
 }
