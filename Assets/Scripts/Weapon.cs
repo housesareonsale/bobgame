@@ -12,6 +12,7 @@ public class Weapon : MonoBehaviour
     public float projectileForce = 20f;
     public Animator animator;
     public EnemyAnimator enemyAnimator;
+    public float projectileDuration = 2;
     public bool friendly;
 
 
@@ -31,6 +32,7 @@ public class Weapon : MonoBehaviour
         Projectile bulletObj = bullet.GetComponent<Projectile>();
         bulletObj.damage = damage;
         bulletObj.friendly = friendly;
+        bulletObj.projectileDuration = projectileDuration;
 
         // Ignores collisions with caster and collision
         Physics2D.IgnoreCollision(bullet.GetComponent<Collider2D>(), shooter.GetComponent<Collider2D>());
