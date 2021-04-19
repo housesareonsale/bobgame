@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
     }
 
     void Die(){
-        Debug.Log("player died");
         gamestate.LoseGame();
     }
+
 }

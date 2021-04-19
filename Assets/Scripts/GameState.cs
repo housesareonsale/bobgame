@@ -12,7 +12,7 @@ public class GameState : ScriptableObject
     public Transform playerLocation;
 
 
-    int currentCurreny = 0;
+    public int currentCurreny = 0;
 
     public void Initialize(int startFloor = 20)
     {

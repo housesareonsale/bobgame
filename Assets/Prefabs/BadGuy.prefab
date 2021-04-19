@@ -324,7 +324,7 @@ MonoBehaviour:
   firerate: 0.5
   weapon: {fileID: 3558746731613839166}
   firepoint: {fileID: 3558746732859653661}
-  accuracy: 0.1
+  accuracy: 1
 --- !u!95 &3558746731613839160
 Animator:
   serializedVersion: 3
