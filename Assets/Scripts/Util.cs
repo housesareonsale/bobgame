@@ -58,4 +58,27 @@ public static class Util
     {
         return downybound;
     }
+
+    static public IEnumerator FlashRenderer(SpriteRenderer toFlash, float flashTime, float flashSpeed, Color originalColor)
+    {
+        float flashingFor = 0;
+        Color newColor = new Color32(255, 255, 255,255);
+        Color flashColor = new Color32(255, 255, 255,255);
+
+        while(flashingFor < flashTime)
+        {
+            toFlash.material.color = newColor;
+            flashingFor += Time.deltaTime;
+            yield return new WaitForSeconds(flashSpeed);
+            flashingFor += flashSpeed;
+            if(newColor == flashColor)
+            {
+                newColor = originalColor;
+            }
+            else
+            {
+                newColor = flashColor;
+            }
+        }
+    }
 }

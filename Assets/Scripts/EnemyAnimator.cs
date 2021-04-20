@@ -8,6 +8,11 @@ public class EnemyAnimator : MonoBehaviour
     public Animator body;
     public Animator leg;
 
+    public SpriteRenderer faceRenderer;
+    public SpriteRenderer bodyRenderer;
+    public SpriteRenderer legRenderer;
+    
+
     public float firerate;
     bool isAttacking = false;
 
@@ -32,6 +37,17 @@ public class EnemyAnimator : MonoBehaviour
             Invoke("DoneAttacking", firerate);
             isAttacking = true;
         }
+    }
+
+    public void Flash()
+    {
+        StopCoroutine(Util.FlashRenderer(faceRenderer, 0.6f, 0.15f, faceRenderer.material.color));
+        StopCoroutine(Util.FlashRenderer(bodyRenderer, 0.6f, 0.15f, bodyRenderer.material.color));
+        StopCoroutine(Util.FlashRenderer(legRenderer, 0.6f, 0.15f, legRenderer.material.color));
+
+        StartCoroutine(Util.FlashRenderer(faceRenderer, 0.6f, 0.15f, faceRenderer.material.color));
+        StartCoroutine(Util.FlashRenderer(bodyRenderer, 0.6f, 0.15f, bodyRenderer.material.color));
+        StartCoroutine(Util.FlashRenderer(legRenderer, 0.6f, 0.15f, legRenderer.material.color));
     }
 
     public void DoneAttacking()
