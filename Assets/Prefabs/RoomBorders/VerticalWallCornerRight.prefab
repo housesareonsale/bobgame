@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1607415922398007071}
   - component: {fileID: 2748936860754099260}
   - component: {fileID: 8956735536706477589}
+  - component: {fileID: -8514472097676945685}
   - component: {fileID: 2528421051439411070}
   m_Layer: 11
   m_Name: VerticalWallCornerRight
@@ -112,6 +113,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.20879555, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-8514472097676945685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7468578501103279535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 675ba9510cb468b49afd853a05a5832f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  furnitureCollision: {fileID: 6665750064005910593, guid: cdf1adb740b75b249a25edb1644c8e30,
+    type: 3}
+  furnitureDestroy: {fileID: 3495364052317624891, guid: 2cd4a6e6719623247807e3f8dd1c64f0,
+    type: 3}
 --- !u!61 &2528421051439411070
 BoxCollider2D:
   m_ObjectHideFlags: 0

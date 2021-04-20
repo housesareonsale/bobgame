@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 2457664743785997649}
   - component: {fileID: 2457664743785997648}
   - component: {fileID: 2457664743785997650}
-  m_Layer: 0
+  - component: {fileID: -8185437175390121676}
+  m_Layer: 11
   m_Name: DeskChair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,6 +113,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.80989826, y: 0.3663273}
   m_EdgeRadius: 0
+--- !u!114 &-8185437175390121676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2457664743785997655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 675ba9510cb468b49afd853a05a5832f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  furnitureCollision: {fileID: 6665750064005910593, guid: cdf1adb740b75b249a25edb1644c8e30,
+    type: 3}
+  furnitureDestroy: {fileID: 3495364052317624891, guid: 2cd4a6e6719623247807e3f8dd1c64f0,
+    type: 3}
 --- !u!1001 &2457664743567332986
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -119,10 +137,27 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2457664743785997649}
     m_Modifications:
+    - target: {fileID: 1907457277986861744, guid: e998675d48eee6f48b275bdda19f85db,
+        type: 3}
+      propertyPath: health
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1907457277986861744, guid: e998675d48eee6f48b275bdda19f85db,
+        type: 3}
+      propertyPath: furnitureDestroy
+      value: 
+      objectReference: {fileID: 3495364052317624891, guid: 2cd4a6e6719623247807e3f8dd1c64f0,
+        type: 3}
+    - target: {fileID: 1907457277986861744, guid: e998675d48eee6f48b275bdda19f85db,
+        type: 3}
+      propertyPath: furnitureCollision
+      value: 
+      objectReference: {fileID: 6665750064005910593, guid: cdf1adb740b75b249a25edb1644c8e30,
+        type: 3}
     - target: {fileID: 9185114525645548412, guid: e998675d48eee6f48b275bdda19f85db,
         type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9185114525645548413, guid: e998675d48eee6f48b275bdda19f85db,
         type: 3}

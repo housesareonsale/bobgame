@@ -355,6 +355,9 @@ MonoBehaviour:
   gameState: {fileID: 11400000, guid: 8a34a671fc7cefe438a2154dc7f952d5, type: 2}
   currenyDrop: 20
   healthBar: {fileID: 8656070449870160874}
+  screenShake: {fileID: 0}
+  enemyDeathParticle: {fileID: 1050039572974134614, guid: c057ea4bd0b1bc944a33e728a98d9adc,
+    type: 3}
   firerate: 0.5
   weapon: {fileID: 3558746731613839166}
   firepoint: {fileID: 3558746732859653661}

@@ -18,21 +18,31 @@ public class Projectile : MonoBehaviour
     {
         GameObject gameObj = collision.gameObject;
 
-        if(friendly)
+        Obstacle obstacle = gameObj.GetComponent<Obstacle>();
+        if(obstacle != null)
         {
-            // If the projectile collided with an enemy damage it
-            Enemy enemy = gameObj.GetComponent<Enemy>();
-            if(enemy != null) {
-                enemy.TakeDamage(damage);
-            }
+            obstacle.TakeDamage(damage);
         }
         else
         {
-            // If the projectile collided with a player damage it
-            Player player = gameObj.GetComponent<Player>();
-            
-            if(player != null) {
-                player.TakeDamage(damage);
+            if(friendly)
+            {
+                // If the projectile collided with an enemy damage it
+                Enemy enemy = gameObj.GetComponent<Enemy>();
+                if(enemy != null)
+                {
+                    enemy.TakeDamage(damage);
+                }
+            }
+            else
+            {
+                // If the projectile collided with a player damage it
+                Player player = gameObj.GetComponent<Player>();
+                
+                if(player != null)
+                {
+                    player.TakeDamage(damage);
+                }
             }
         }
 
@@ -42,9 +52,7 @@ public class Projectile : MonoBehaviour
     void DestroyProjectile()
     {
         // play some sound effect / add particle effects
-        Debug.Log("goint to destroy this projectile");
-        GameObject particle = Instantiate(collisionParticle, transform.position, Quaternion.identity);
-        Destroy(particle, 1f);
+        Instantiate(collisionParticle, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }

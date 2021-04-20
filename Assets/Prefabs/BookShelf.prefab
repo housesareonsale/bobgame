@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 5425471722152286692}
   - component: {fileID: 5425471722152286691}
   - component: {fileID: 5425471722152286690}
-  m_Layer: 0
+  - component: {fileID: -27546836874177443}
+  m_Layer: 11
   m_Name: BookShelf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 3786829970477001853, guid: 9600a8c252c9dc644b7b160600830f58,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -111,3 +112,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8544926, y: 0.8700824}
   m_EdgeRadius: 0
+--- !u!114 &-27546836874177443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5425471722152286689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 675ba9510cb468b49afd853a05a5832f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  furnitureCollision: {fileID: 6665750064005910593, guid: cdf1adb740b75b249a25edb1644c8e30,
+    type: 3}
+  furnitureDestroy: {fileID: 3495364052317624891, guid: 2cd4a6e6719623247807e3f8dd1c64f0,
+    type: 3}

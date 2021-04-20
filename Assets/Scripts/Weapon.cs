@@ -16,8 +16,14 @@ public class Weapon : MonoBehaviour
     public bool friendly;
 
 
-    public void Shoot()
+    public void Shoot(Vector3? optionalPosition = null)
     {
+        Vector3 position = firepoint.position;
+        if(optionalPosition != null)
+        {
+            position = optionalPosition.Value;
+        }
+
         if(animator != null && !animator.GetCurrentAnimatorStateInfo(0).IsName("BoobsAttack"))
             animator.SetTrigger("Shoot");
 
@@ -26,7 +32,7 @@ public class Weapon : MonoBehaviour
             enemyAnimator.TriggerShoot();
         }
 
-        GameObject bullet = Instantiate(projectile, firepoint.position, firepoint.rotation);
+        GameObject bullet = Instantiate(projectile, position, firepoint.rotation);
 
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         Projectile bulletObj = bullet.GetComponent<Projectile>();
@@ -39,4 +45,13 @@ public class Weapon : MonoBehaviour
         rb.AddForce(firepoint.right * projectileForce, ForceMode2D.Impulse);
     }
 
+    public void SlugShot(int numBullets)
+    {
+        for(int i = 0; i < numBullets; i++)
+        {
+            Vector3 offset = new Vector3(Random.Range(6f, 8.5f) / 10, Random.Range(6f, 8.5f) / 10, 0);
+            Vector3 position = firepoint.right + offset;
+            Shoot();
+        }
+    }
 }

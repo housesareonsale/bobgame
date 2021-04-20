@@ -18,6 +18,7 @@ public class PlayerControl : MonoBehaviour
     public float fireRate = 0.5f;
     public float maxTime = 8f;
     public float timer = 8f; 
+    public Player player;
 
     Vector3 movement;
     Vector2 mousePointer;
@@ -46,9 +47,6 @@ public class PlayerControl : MonoBehaviour
 
             isShooting = !animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerShoot");
             mousePointer = cam.ScreenToWorldPoint(Input.mousePosition);
-
-            Debug.Log("player attack is now " + playerWeapon.damage.ToString());
-            Debug.Log("firerate is now " + fireRate.ToString());
         }
     }
 
@@ -106,5 +104,10 @@ public class PlayerControl : MonoBehaviour
             playerWeapon.Shoot();
             timer = maxTime;
         }
+    }
+
+    public void UpdatePlayerHealth(int currIncrease, int maxIncrease)
+    {
+        player.UpdatePlayerHealth(currIncrease, maxIncrease);
     }
 }

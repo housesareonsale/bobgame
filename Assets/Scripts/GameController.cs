@@ -11,6 +11,8 @@ public class GameController : MonoBehaviour
     public PlayerControl playerControl;
     public TextMeshProUGUI floor;
     public GameState gameState;
+    public ScreenShake screenShake;
+    public LayerMask enemySpawningLayerMask;
 
     int maxNumEnemies;
     int gameFloor;
@@ -30,7 +32,7 @@ public class GameController : MonoBehaviour
         playerControl.fireRate += gameState.firerateIncreased;
 
         Invoke("UpdateGraph", 5f);
-        InvokeRepeating("SpawnEnemiesConstant", 5f, 10f);
+        InvokeRepeating("SpawnEnemiesConstant", 7f, 2f);
     }
 
     void UpdateGraph()
@@ -44,7 +46,7 @@ public class GameController : MonoBehaviour
 
     void SpawnEnemiesConstant()
     {
-        SpawnEnemies(5);
+        SpawnEnemies(1);
     }
 
     public void SpawnEnemies(int numEnemiesToSpawn = 0, float startRange = 8f, float endRange = 13f)
@@ -66,8 +68,17 @@ public class GameController : MonoBehaviour
 
         currNumEnemies += enemiesSpawned; 
 
-        for(int i = 0; i < enemiesSpawned; i++) {
+        for(int i = 0; i < enemiesSpawned; i++) 
+        {
+
             Vector3 spawnLocation = Util.GetRandomPosition(playerControl.transform.position, startRange, endRange);
+            Collider2D hitCollider = Physics2D.OverlapCircle(spawnLocation, 1, enemySpawningLayerMask);
+            
+            while(hitCollider != null)
+            {
+                spawnLocation = Util.GetRandomPosition(playerControl.transform.position, startRange, endRange);
+                hitCollider = Physics2D.OverlapCircle(spawnLocation, 1, enemySpawningLayerMask);
+            }
 
             int rand = Random.Range(0, 4);
             // 20% chance to spawn a skull girl
@@ -84,6 +95,14 @@ public class GameController : MonoBehaviour
             Enemy enemyObj = enemy.GetComponent<Enemy>();
             if(enemyObj != null)
             {
+                float originalTotalVal = (float)enemyObj.health + (float)enemyObj.enemyDamage - enemyObj.firerate; 
+                float increasedTotalVal = 
+                    (float)gameState.enemyHealthIncrease + 
+                    (float)gameState.enemyDamageIncrease - 
+                    gameState.enemyFirerateIncrease;
+
+                enemyObj.UpdateCurrencyDrop( increasedTotalVal/originalTotalVal );
+                enemyObj.screenShake = screenShake;
                 enemyObj.targetPosition = playerControl.transform;
             }
         }
@@ -110,5 +129,10 @@ public class GameController : MonoBehaviour
     public void UpgradePlayerFireRate()
     {
         playerControl.fireRate += 0.08f;
+    }
+
+    public void UpgradePlayerHealh(int currIncrease, int maxIncrease = 0)
+    {
+        playerControl.UpdatePlayerHealth(currIncrease, maxIncrease);
     }
 }

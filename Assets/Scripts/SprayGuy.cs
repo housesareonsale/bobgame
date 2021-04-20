@@ -32,17 +32,7 @@ public class SprayGuy : Enemy
             Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(transform.position, attackRange, playerLayer);
             foreach (Collider2D player in hitPlayer)
             {
-                for(int i = 0; i < numBullets; i++)
-                {
-                    float offset = Random.Range(7, 11) / 10;
-                    Target(offset);
-                    weapon.Shoot();
-
-                    if(i != numBullets - 1)
-                    {
-                        enemyAnimator.DoneAttacking();
-                    }
-                }
+                weapon.SlugShot(numBullets);
             }
         }
     }

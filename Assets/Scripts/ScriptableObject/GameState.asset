@@ -12,10 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d711147db3bd1c418bbc94d700397f7, type: 3}
   m_Name: GameState
   m_EditorClassIdentifier: 
-  gameFloor: 20
-  maxNumEnemies: 7
+  maxGameFloor: 20
+  gameFloor: 18
+  maxNumEnemies: 4
   gameController: {fileID: 0}
   playerLocation: {fileID: 0}
-  attackIncreased: 0
+  attackIncreased: 14
+  healthIncreased: 30
+  currHealth: 0
   firerateIncreased: 0
-  currentCurreny: 0
+  attackcost: 400
+  fireratecost: 100
+  maxhealthcost: 400
+  regencost: 121
+  enemyHealthIncrease: 0
+  enemyDamageIncrease: 0
+  enemyFirerateIncrease: 0
+  currentCurreny: 40

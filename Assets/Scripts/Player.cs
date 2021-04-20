@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public GameState gamestate;
     public GameObject healthBar;
     public float healthBarXPos;
+    public ScreenShake screenShake;
 
     void Start()
     {
@@ -18,15 +19,20 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        health -= damage;
-        float amount = (health) / (float)maxHealth;
+        health -= damage;        
 
-        healthBar.transform.localScale = new Vector3(
-            amount, 
-            healthBar.transform.localScale.y, 
-            healthBar.transform.localScale.z
-        );
+        HandleHealthBar();
+        if(health < 0){
+            Die();
+        }
+    }
 
+    public void UpdatePlayerHealth(int currChange, int maxChange)
+    {
+        maxHealth += maxChange;
+        health = Mathf.Min(maxHealth, health + currChange);
+
+        HandleHealthBar();
         if(health < 0){
             Die();
         }
@@ -40,6 +46,18 @@ public class Player : MonoBehaviour
     void Die()
     {
         // gamestate.LoseGame();
+    }
+
+    void HandleHealthBar()
+    {
+        float amount = (health) / (float)maxHealth;
+
+        screenShake.Shake(0.05f);
+        healthBar.transform.localScale = new Vector3(
+            amount, 
+            healthBar.transform.localScale.y, 
+            healthBar.transform.localScale.z
+        );
     }
 
 }

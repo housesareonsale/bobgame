@@ -19,12 +19,14 @@ public class Enemy : MonoBehaviour
     public GameState gameState;
     public int currenyDrop = 20;
     public GameObject healthBar;
+    public ScreenShake screenShake;
+    public GameObject enemyDeathParticle;
 
     // Unit for firerate is frame per shots, so increaing firerate will reduce the number
     // of bullets being spawned per second by the enemy.  
     public float firerate;
 
-    bool isDead = false;
+
     Vector3 startPosition;
     Vector3 roamPosition;
     EnemyState state = EnemyState.ROAMING;
@@ -121,18 +123,22 @@ public class Enemy : MonoBehaviour
         // Delete the object if the health is zero
         if(health <= 0)
         {
-            Destroy(gameObject);
+            Die();
         }
     }
 
     void Die()
     {
-        if(!isDead)
-        {
-            gameState.EnemyDied(currenyDrop);
-            Destroy(gameObject, 0.1f);
-            isDead = true;
-        }
+        screenShake.Shake(0.01f);
+        gameState.EnemyDied(currenyDrop);
+        Instantiate(enemyDeathParticle, transform.position, Quaternion.identity);
+        Destroy(gameObject,0.05f);
     }
     # endregion
+
+    public void UpdateCurrencyDrop(float percentIncrease)
+    {
+        float currencyFloat = currenyDrop * (1 + percentIncrease);
+        currenyDrop = (int)currencyFloat;
+    }
 }
