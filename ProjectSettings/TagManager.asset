@@ -21,7 +21,7 @@ TagManager:
   - Obstacle
   - Projectile
   - Room
-  - 
+  - VendingMachine
   - 
   - 
   - 
@@ -42,4 +42,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Top
+    uniqueID: 2680986075
     locked: 0

@@ -13,19 +13,20 @@ MonoBehaviour:
   m_Name: GameState
   m_EditorClassIdentifier: 
   maxGameFloor: 20
-  gameFloor: 18
+  gameFloor: 4
   maxNumEnemies: 4
   gameController: {fileID: 0}
   playerLocation: {fileID: 0}
-  attackIncreased: 14
-  healthIncreased: 30
+  attackIncreased: 0
+  healthIncreased: 0
   currHealth: 0
   firerateIncreased: 0
-  attackcost: 400
+  attackcost: 100
   fireratecost: 100
-  maxhealthcost: 400
-  regencost: 121
+  maxhealthcost: 100
+  regencost: 100
   enemyHealthIncrease: 0
   enemyDamageIncrease: 0
   enemyFirerateIncrease: 0
-  currentCurreny: 40
+  playerWeaponUpgrades: 00000000
+  currentCurreny: 850

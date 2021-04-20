@@ -77,6 +77,8 @@
     <Compile Include="Assets\Scripts\Enums.cs" />
     <Compile Include="Assets\Scripts\GameState.cs" />
     <Compile Include="Assets\Scripts\RoomType.cs" />
+    <Compile Include="Assets\Scripts\EffectProjectile.cs" />
+    <Compile Include="Assets\Scripts\VendingMachine.cs" />
     <Compile Include="Assets\Scripts\Obstacle.cs" />
     <Compile Include="Assets\Scripts\Weapon.cs" />
     <Compile Include="Assets\Scripts\Util.cs" />

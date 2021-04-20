@@ -22,6 +22,7 @@ public class GameState : ScriptableObject
     public int enemyHealthIncrease;
     public int enemyDamageIncrease;
     public float enemyFirerateIncrease;
+    public List<UpgradeType> playerWeaponUpgrades;
 
 
     public int currentCurreny = 0;
@@ -33,25 +34,16 @@ public class GameState : ScriptableObject
         maxNumEnemies = 0;
         attackcost = 100;
         fireratecost = 100;
+        playerWeaponUpgrades = new List<UpgradeType>();
     }
 
     public void NextLevel()
     {
         int randUpgrade = Random.Range(0,3);
 
-        switch(randUpgrade) 
-        {
-            default:
-            case 0:
-                enemyDamageIncrease += 5;
-                break;
-            case 1:
-                enemyHealthIncrease += 8;
-                break;
-            case 2:
-                enemyFirerateIncrease -= 0.01f;
-                break;
-        }
+        enemyDamageIncrease += 15;
+        enemyHealthIncrease += 28;
+        enemyFirerateIncrease -= 0.04f;
 
         gameFloor -= 1;
         SceneManager.LoadScene("Game");
@@ -93,5 +85,11 @@ public class GameState : ScriptableObject
     public void RegenPlayerAttack(int amoutregen)
     {
         gameController.UpgradePlayerHealh(amoutregen);
+    }
+
+    public void WeaponUpgradeCollected(UpgradeType upgradeType)
+    {
+        playerWeaponUpgrades.Add(upgradeType);
+        gameController.playerControl.UpgradePlayerWeapon(upgradeType);
     }
 }

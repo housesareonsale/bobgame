@@ -28,8 +28,16 @@ public class GameController : MonoBehaviour
         floor.text = "Floor " + gameState.gameFloor.ToString();
         maxNumEnemies = gameState.maxNumEnemies;
         currNumEnemies = 0;
+
+        // Update player here 
         playerControl.playerWeapon.damage += gameState.attackIncreased;
         playerControl.fireRate += gameState.firerateIncreased;
+        playerControl.player.maxHealth += gameState.healthIncreased;
+        playerControl.playerWeapon.UpgradeBulk(gameState.playerWeaponUpgrades);
+        if(gameState.currHealth != 0)
+        {
+            playerControl.player.health = gameState.currHealth;
+        }
 
         Invoke("UpdateGraph", 5f);
         InvokeRepeating("SpawnEnemiesConstant", 7f, 2f);

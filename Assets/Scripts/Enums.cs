@@ -16,3 +16,8 @@ public enum EnemyPart
 {
     FACE, BODY, LEGS
 } 
+
+public enum UpgradeType
+{
+    FIRE, NUM_PROJECTILES, BIGGER_PROJECTILES
+}

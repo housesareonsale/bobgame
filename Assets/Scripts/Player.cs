@@ -8,18 +8,22 @@ public class Player : MonoBehaviour
     public int maxHealth;
     public GameState gamestate;
     public GameObject healthBar;
-    public float healthBarXPos;
     public ScreenShake screenShake;
+    public GameObject  damagePopupComponent;
+    public GameObject fireDamageParticle;
 
     void Start()
     {
         health = maxHealth;
-        healthBarXPos = healthBar.transform.position.x;
     }
 
     public void TakeDamage(int damage)
     {
         health -= damage;        
+
+        GameObject damagePopup = Instantiate(damagePopupComponent, transform.position + new Vector3(0.5f, 0.5f, 0), Quaternion.identity);
+        DamagePopup damagePopupObj = damagePopup.GetComponent<DamagePopup>();
+        damagePopupObj.Setup(damage, true, false);
 
         HandleHealthBar();
         if(health < 0){
@@ -60,4 +64,20 @@ public class Player : MonoBehaviour
         );
     }
 
+    public void InflictBurn(int severity)
+    {
+        Instantiate(fireDamageParticle, transform.position, Quaternion.identity);
+        StartCoroutine(DamageBurn(severity));
+    }
+
+    public IEnumerator DamageBurn(int severity)
+    {
+        var startTime = Time.realtimeSinceStartup;
+
+        while(Time.realtimeSinceStartup < startTime + 0.2f)
+        {
+            TakeDamage(severity);
+            yield return null;
+        }
+    }
 }

@@ -21,6 +21,7 @@ public class Projectile : MonoBehaviour
         Obstacle obstacle = gameObj.GetComponent<Obstacle>();
         if(obstacle != null)
         {
+            DoExtra(gameObj);
             obstacle.TakeDamage(damage);
         }
         else
@@ -31,6 +32,7 @@ public class Projectile : MonoBehaviour
                 Enemy enemy = gameObj.GetComponent<Enemy>();
                 if(enemy != null)
                 {
+                    DoExtra(gameObj);
                     enemy.TakeDamage(damage);
                 }
             }
@@ -41,6 +43,7 @@ public class Projectile : MonoBehaviour
                 
                 if(player != null)
                 {
+                    DoExtra(gameObj);
                     player.TakeDamage(damage);
                 }
             }
@@ -54,5 +57,10 @@ public class Projectile : MonoBehaviour
         // play some sound effect / add particle effects
         Instantiate(collisionParticle, transform.position, Quaternion.identity);
         Destroy(gameObject);
+    }
+
+    public virtual void DoExtra(GameObject target)
+    {
+
     }
 }

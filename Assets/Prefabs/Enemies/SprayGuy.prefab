@@ -823,12 +823,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67b88e4dd8403e54da16623de6dda9d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponmods: []
   firepoint: {fileID: 9191867039395442077}
   projectile: {fileID: 9061429986826070620, guid: b0eec41b0a47c4b44b486a703d64286f,
     type: 3}
+  effectProjectile: {fileID: 0}
   shooter: {fileID: 9191867040288984247}
-  damage: 10
+  damage: 15
   projectileForce: 15
   animator: {fileID: 0}
   enemyAnimator: {fileID: 0}
@@ -877,7 +877,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2f5bc6fde92d104b8b6e20c64b13854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 190
   speicalGained: 25
   reachedPosition: 10
   attackRange: 3
@@ -897,6 +897,11 @@ MonoBehaviour:
   screenShake: {fileID: 0}
   enemyDeathParticle: {fileID: 1050039572974134614, guid: c057ea4bd0b1bc944a33e728a98d9adc,
     type: 3}
+  damagePopupComponent: {fileID: 5569247089074836625, guid: 755b5f25395e47847bc35aa5cd5aaae2,
+    type: 3}
+  fireDamageParticle: {fileID: 8077243922302867670, guid: 667652cf1c4a5294587645d35a38d2ec,
+    type: 3}
+  maxHealth: 190
   firerate: 4
   weapon: {fileID: 9191867040288984254}
   firepoint: {fileID: 9191867039395442077}

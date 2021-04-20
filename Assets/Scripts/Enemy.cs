@@ -21,12 +21,17 @@ public class Enemy : MonoBehaviour
     public GameObject healthBar;
     public ScreenShake screenShake;
     public GameObject enemyDeathParticle;
+    public GameObject damagePopupComponent;
+    public GameObject fireDamageParticle;
+    public int maxHealth;
+    public float timeTillDespawn = 5f; 
+    public bool boss = false;
 
     // Unit for firerate is frame per shots, so increaing firerate will reduce the number
     // of bullets being spawned per second by the enemy.  
     public float firerate;
 
-
+    float timer;
     Vector3 startPosition;
     Vector3 roamPosition;
     EnemyState state = EnemyState.ROAMING;
@@ -41,10 +46,18 @@ public class Enemy : MonoBehaviour
         currTargetPosition = roamPosition;
         enemyMovement.speed = moveSpeed;
         enemyAnimator.firerate = firerate;
+        maxHealth = health;
+        timer = timeTillDespawn;
     }
 
     void Update()
     {
+        if(timeTillDespawn <= 0 && !boss)
+        {
+            gameState.EnemyDied(0);
+            Destroy(gameObject);
+        }
+
         switch(state)
         {
             default:
@@ -52,6 +65,7 @@ public class Enemy : MonoBehaviour
                 enemyMovement.SetTarget(currTargetPosition);
 
                 float reachedPosition = 10f;
+                timeTillDespawn -= Time.deltaTime;
 
                 if(Vector3.Distance(transform.position, currTargetPosition) < reachedPosition)
                 {
@@ -70,9 +84,11 @@ public class Enemy : MonoBehaviour
 
             case EnemyState.CHASING:
                 enemyMovement.SetTarget(targetPosition.position);
-
+                
                 var distance = Vector3.Distance(transform.position, targetPosition.position);
                 FindTarget(2);
+
+                timer = timeTillDespawn;
 
                 if(distance <= attackRange)
                 {
@@ -105,10 +121,21 @@ public class Enemy : MonoBehaviour
     #endregion
 
     # region Enemy Health
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, bool burn = false)
     {
         health -= damage;
-        healthBar.transform.localScale = new Vector3((health) / 100f, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
+
+        GameObject damagePopup = Instantiate(damagePopupComponent, transform.position + new Vector3(0.5f, 0.5f, 0), Quaternion.identity);
+        DamagePopup damagePopupObj = damagePopup.GetComponent<DamagePopup>();
+        damagePopupObj.Setup(damage, false, burn);
+
+        float amount = (health) / (float)maxHealth;
+        healthBar.transform.localScale = new Vector3(
+            amount, 
+            healthBar.transform.localScale.y, 
+            healthBar.transform.localScale.z
+        );
+
         if (health <= 0)
         {
             Die();
@@ -132,7 +159,7 @@ public class Enemy : MonoBehaviour
         screenShake.Shake(0.01f);
         gameState.EnemyDied(currenyDrop);
         Instantiate(enemyDeathParticle, transform.position, Quaternion.identity);
-        Destroy(gameObject,0.05f);
+        Destroy(gameObject);
     }
     # endregion
 
@@ -140,5 +167,22 @@ public class Enemy : MonoBehaviour
     {
         float currencyFloat = currenyDrop * (1 + percentIncrease);
         currenyDrop = (int)currencyFloat;
+    }
+
+    public void InflictBurn(int severity)
+    {
+        Instantiate(fireDamageParticle, transform.position, Quaternion.identity);
+        StartCoroutine(DamageBurn(severity));
+    }
+
+    public IEnumerator DamageBurn(int severity)
+    {
+        var startTime = Time.realtimeSinceStartup;
+
+        while(Time.realtimeSinceStartup < startTime + 1f)
+        {
+            TakeDamage(severity, true);
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 }

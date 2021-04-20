@@ -13,12 +13,18 @@ public class RoomType : MonoBehaviour
     public GameObject[] counchPositions;
     public GameObject[] deskChairPositions;
     public GameObject[] chairPositions;
+    public GameObject vendingMachinePosition;
     public GameObject couch;
     public GameObject shelf;
     public GameObject chair;
     public GameObject deskChair;
+    public GameObject vendingMachine;
     // chance of spawning the furniture 1/spawnRate
     public int spawnRate;
+
+    // chance of spawning the vending machine 1/spawnRate
+    public int vendingMachineSpawnRate;
+
 
     private void Start()
     {
@@ -93,5 +99,15 @@ public class RoomType : MonoBehaviour
             }
             Destroy(chairPositions[i]);
         }
+
+        int vendingMachineChance = Random.Range(0, vendingMachineSpawnRate);
+
+        if (vendingMachineChance == 0)
+        {
+            Instantiate(vendingMachine, vendingMachinePosition.transform.position, Quaternion.identity);
+        }
+
+        Destroy(vendingMachinePosition);
+
     }
 }

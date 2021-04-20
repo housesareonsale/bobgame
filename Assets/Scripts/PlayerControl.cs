@@ -19,6 +19,7 @@ public class PlayerControl : MonoBehaviour
     public float maxTime = 8f;
     public float timer = 8f; 
     public Player player;
+    public LayerMask vendingMachineLayer;
 
     Vector3 movement;
     Vector2 mousePointer;
@@ -47,6 +48,11 @@ public class PlayerControl : MonoBehaviour
 
             isShooting = !animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerShoot");
             mousePointer = cam.ScreenToWorldPoint(Input.mousePosition);
+
+            if(Input.GetButton("Interact"))
+            {
+                TryWeaponUpgrade();
+            }
         }
     }
 
@@ -109,5 +115,21 @@ public class PlayerControl : MonoBehaviour
     public void UpdatePlayerHealth(int currIncrease, int maxIncrease)
     {
         player.UpdatePlayerHealth(currIncrease, maxIncrease);
+    }
+
+    public void UpgradePlayerWeapon(UpgradeType upgradeType)
+    {
+        playerWeapon.UpgradeWeapon(upgradeType);
+    }
+
+    public void TryWeaponUpgrade()
+    {
+        Collider2D collision = Physics2D.OverlapCircle(transform.position, 1.5f, vendingMachineLayer);
+        if(collision != null)
+        {
+            GameObject collidedObj = collision.gameObject;
+            VendingMachine vendingMachine = collidedObj.GetComponent<VendingMachine>();
+            vendingMachine.CollectWeaponUpgrade();
+        }
     }
 }

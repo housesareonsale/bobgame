@@ -37,10 +37,10 @@ public class SprayGuy : Enemy
         }
     }
 
-    void Target(float offset = 0)
+    void Target()
     {
-        float aimx = Random.Range(-accuracy, accuracy) + offset;
-        float aimy = Random.Range(-accuracy, accuracy) + offset;
+        float aimx = Random.Range(-accuracy, accuracy);
+        float aimy = Random.Range(-accuracy, accuracy);
         firepoint.right = currTargetPosition - transform.position + new Vector3(aimx, aimy, 0);
 
         enemyMovement.ScaleEnemy(firepoint.right.x >= 0.01f, firepoint.right.x <= -0.01f);
