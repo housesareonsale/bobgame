@@ -92,6 +92,7 @@
     <Compile Include="Assets\Scripts\HRGuy.cs" />
     <Compile Include="Assets\Scripts\GameControllerBenDover.cs" />
     <Compile Include="Assets\Scripts\BenDover.cs" />
+    <Compile Include="Assets\Scripts\GameControllerElevator.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

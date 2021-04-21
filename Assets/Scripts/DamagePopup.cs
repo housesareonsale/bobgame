@@ -138,4 +138,19 @@ public class DamagePopup : MonoBehaviour
         sortingOrder++;
         textMesh.sortingOrder = sortingOrder;
     }
+
+    public void SetUpUnlockedElevator()
+    {
+        damageText = false;
+        textMesh.text = "Looks like the elevator door just opened, I can finally escape this hord.";
+
+        RectTransform rt = gameObject.GetComponent<RectTransform>();
+        rt.sizeDelta = new Vector2(100, 100);
+
+        textColor = new Color32(221, 160, 221,255);
+        textMesh.faceColor = textColor;
+
+        sortingOrder++;
+        textMesh.sortingOrder = sortingOrder;
+    }
 }

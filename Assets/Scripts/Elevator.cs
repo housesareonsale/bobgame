@@ -9,6 +9,7 @@ public class Elevator : MonoBehaviour
     public GameState gameState;
     public GameObject textPopupComponent;
     public bool setAnimation = false;
+    public bool exiting = false;
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -28,13 +29,13 @@ public class Elevator : MonoBehaviour
         {
             GameObject textPopup = Instantiate(textPopupComponent, transform.position + new Vector3(0.5f, 0.5f, 0), Quaternion.identity);
             DamagePopup textPopupObj = textPopup.GetComponent<DamagePopup>();
-            textPopupObj.SetUpLockedElevator();
+            textPopupObj.SetUpUnlockedElevator();
             Destroy(textPopup, 8f);
         }
     }
 
     void GoToNextLevel()
     {
-        gameState.NextLevel();
+        gameState.NextLevel(exiting);
     }
 }

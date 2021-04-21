@@ -43,38 +43,44 @@ public class GameState : ScriptableObject
         currentCurreny = 0;
     }
 
-    public void NextLevel()
+    public void NextLevel(bool exiting)
     {
-        currHealth = gameController.playerControl.player.health;
-        int randUpgrade = Random.Range(0,3);
-
-        enemyDamageIncrease += 15;
-        enemyHealthIncrease += 28;
-        enemyFirerateIncrease -= 0.04f;
-
-        gameFloor -= 1;
-
-        if(gameFloor == (int)(maxGameFloor*0.75))
+        if(!exiting)
         {
-            // MEET 5 SNIPERS
-        }
-        else if (gameFloor == (int)(maxGameFloor*0.50))
-        {
-            SceneManager.LoadScene("BenDover");
-        }
-        else if (gameFloor == (int)(maxGameFloor*0.25))
-        {
-            SceneManager.LoadScene("TwinBoss");
-        }
-        else if (gameFloor == 0)
-        {
-            // FINAL BOSS
+            SceneManager.LoadScene("Elevator");
         }
         else
         {
-            SceneManager.LoadScene("Game");
-        }
+            currHealth = gameController.playerControl.player.health;
+            int randUpgrade = Random.Range(0,3);
 
+            enemyDamageIncrease += 15;
+            enemyHealthIncrease += 28;
+            enemyFirerateIncrease -= 0.04f;
+
+            gameFloor -= 1;
+
+            if(gameFloor == (int)(maxGameFloor*0.75))
+            {
+                // MEET 5 SNIPERS
+            }
+            else if (gameFloor == (int)(maxGameFloor*0.50))
+            {
+                SceneManager.LoadScene("BenDover");
+            }
+            else if (gameFloor == (int)(maxGameFloor*0.25))
+            {
+                SceneManager.LoadScene("TwinBoss");
+            }
+            else if (gameFloor == 0)
+            {
+                // FINAL BOSS
+            }
+            else
+            {
+                SceneManager.LoadScene("Game");
+            }
+        }
     }
 
     public void EnemyDied(int currenyDrop)

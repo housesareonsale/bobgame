@@ -6,12 +6,24 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Main Screen.unity
+    guid: 3ecefa499ba436f49b19a024440fa3d7
+  - enabled: 1
+    path: Assets/Scenes/Start.unity
+    guid: b88e53d1859149649aae71ffda6b87f8
+  - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Scenes/BenDover.unity
+    guid: 3c40cfb10d1af834d93f31a4818f7a47
+  - enabled: 1
+    path: Assets/Scenes/Elevator.unity
+    guid: f33eb691ac402674fb56e6ee5780c112
+  - enabled: 1
+    path: Assets/Scenes/TwinBoss.unity
+    guid: 04dfada0a77b1114c9cd7279a39df785
+  - enabled: 1
     path: Assets/Scenes/Lose.unity
     guid: 36d7a5513510e634baeed0d3c1f7ec8d
-  - enabled: 1
-    path: Assets/Scenes/Main Screen.unity
-    guid: 3ecefa499ba436f49b19a024440fa3d7
   m_configObjects: {}
