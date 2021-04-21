@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
@@ -26,6 +27,12 @@ public class Enemy : MonoBehaviour
     public int maxHealth;
     public float timeTillDespawn = 5f; 
     public bool boss = false;
+    public bool cutScene = false;
+    public bool dead = false;
+
+    [Header("Events")]
+    [Space]
+    public UnityEvent deathEvent;
 
     // Unit for firerate is frame per shots, so increaing firerate will reduce the number
     // of bullets being spawned per second by the enemy.  
@@ -39,6 +46,12 @@ public class Enemy : MonoBehaviour
         ROAMING, CHASING, ATTACKING
     }
 
+    void Awake()
+    {
+        if (deathEvent == null)
+            deathEvent = new UnityEvent();
+    }
+
     void Start()
     {
         startPosition = transform.position;
@@ -46,57 +59,61 @@ public class Enemy : MonoBehaviour
         currTargetPosition = roamPosition;
         enemyMovement.speed = moveSpeed;
         enemyAnimator.firerate = firerate;
+        enemyAnimator.isBoss = boss;
         maxHealth = health;
         timer = timeTillDespawn;
     }
 
     void Update()
     {
-        if(timeTillDespawn <= 0 && !boss)
+        if(!cutScene)
         {
-            gameState.EnemyDied(0);
-            Destroy(gameObject);
-        }
+            if(timeTillDespawn <= 0 && !boss)
+            {
+                gameState.EnemyDied(0);
+                Destroy(gameObject);
+            }
 
-        switch(state)
-        {
-            default:
-            case EnemyState.ROAMING:
-                enemyMovement.SetTarget(currTargetPosition);
+            switch(state)
+            {
+                default:
+                case EnemyState.ROAMING:
+                    enemyMovement.SetTarget(currTargetPosition);
 
-                float reachedPosition = 10f;
-                timeTillDespawn -= Time.deltaTime;
+                    float reachedPosition = 10f;
+                    timeTillDespawn -= Time.deltaTime;
 
-                if(Vector3.Distance(transform.position, currTargetPosition) < reachedPosition)
-                {
-                    if(currTargetPosition == startPosition)
+                    if(Vector3.Distance(transform.position, currTargetPosition) < reachedPosition)
                     {
-                        currTargetPosition = roamPosition;
+                        if(currTargetPosition == startPosition)
+                        {
+                            currTargetPosition = roamPosition;
+                        }
+                        else 
+                        {
+                            currTargetPosition = startPosition;
+                        }
                     }
-                    else 
+
+                    FindTarget();
+                    break;
+
+                case EnemyState.CHASING:
+                    enemyMovement.SetTarget(targetPosition.position);
+                    
+                    var distance = Vector3.Distance(transform.position, targetPosition.position);
+                    FindTarget(2);
+
+                    timer = timeTillDespawn;
+
+                    if(distance <= attackRange)
                     {
-                        currTargetPosition = startPosition;
+                        enemyMovement.StopMove();
+                        Attack();
                     }
-                }
 
-                FindTarget();
-                break;
-
-            case EnemyState.CHASING:
-                enemyMovement.SetTarget(targetPosition.position);
-                
-                var distance = Vector3.Distance(transform.position, targetPosition.position);
-                FindTarget(2);
-
-                timer = timeTillDespawn;
-
-                if(distance <= attackRange)
-                {
-                    enemyMovement.StopMove();
-                    Attack();
-                }
-
-                break;
+                    break;
+            }
         }
     }
 
@@ -160,9 +177,18 @@ public class Enemy : MonoBehaviour
     void Die()
     {
         screenShake.Shake(0.01f);
-        gameState.EnemyDied(currenyDrop);
         Instantiate(enemyDeathParticle, transform.position, Quaternion.identity);
-        Destroy(gameObject);
+
+        if(!dead)
+        {
+            dead = true;
+            if(deathEvent != null)
+            {
+                deathEvent.Invoke();
+            }
+            gameState.EnemyDied(currenyDrop);
+            Destroy(gameObject);
+        }
     }
     # endregion
 

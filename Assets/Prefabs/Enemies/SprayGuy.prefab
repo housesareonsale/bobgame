@@ -959,10 +959,12 @@ MonoBehaviour:
   face: {fileID: 9191867039973864803}
   body: {fileID: 9191867038895409951}
   leg: {fileID: 9191867039617506185}
+  boss: {fileID: 0}
   faceRenderer: {fileID: 9191867039973864802}
   bodyRenderer: {fileID: 9191867038895409950}
   legRenderer: {fileID: 9191867039617506184}
-  firerate: 0.5
+  isBoss: 0
+  firerate: 0.8
 --- !u!114 &9191867040288984252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1017,7 +1019,12 @@ MonoBehaviour:
   maxHealth: 190
   timeTillDespawn: 5
   boss: 0
-  firerate: 4
+  cutScene: 0
+  dead: 0
+  deathEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  firerate: 0.8
   weapon: {fileID: 9191867040288984254}
   firepoint: {fileID: 9191867039395442077}
   accuracy: 0.1

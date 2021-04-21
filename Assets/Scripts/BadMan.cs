@@ -20,6 +20,7 @@ public class BadMan : Enemy
     {
         EnemyAttack();
     }
+
     void EnemyAttack()
     {
         if(!enemyAnimator.IsAttacking()) {

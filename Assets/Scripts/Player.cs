@@ -17,9 +17,14 @@ public class Player : MonoBehaviour
         health = maxHealth;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, bool shake = true)
     {
         health -= damage;        
+
+        if(shake)
+        {
+            screenShake.Shake(0.05f);
+        }
 
         GameObject damagePopup = Instantiate(damagePopupComponent, transform.position + new Vector3(0.5f, 0.5f, 0), Quaternion.identity);
         DamagePopup damagePopupObj = damagePopup.GetComponent<DamagePopup>();
@@ -56,7 +61,6 @@ public class Player : MonoBehaviour
     {
         float amount = (health) / (float)maxHealth;
 
-        screenShake.Shake(0.05f);
         healthBar.transform.localScale = new Vector3(
             amount, 
             healthBar.transform.localScale.y, 
@@ -76,7 +80,7 @@ public class Player : MonoBehaviour
 
         while(Time.realtimeSinceStartup < startTime + 0.2f)
         {
-            TakeDamage(severity);
+            TakeDamage(severity, false);
             yield return null;
         }
     }

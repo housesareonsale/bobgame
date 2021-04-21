@@ -14,15 +14,13 @@ public class Weapon : MonoBehaviour
     public EnemyAnimator enemyAnimator;
     public float projectileDuration = 2;
     public bool friendly;
-
-    int numProjectiles;
-    float sizeIncrease;
-    int fireEffect;
+    public int fireEffect;
+    public int numProjectiles;
+    public float sizeIncrease;
 
     void Start()
     {
         sizeIncrease = 1f;
-        fireEffect = 0;
         numProjectiles = 1;
     }
 
@@ -46,7 +44,6 @@ public class Weapon : MonoBehaviour
         if(numProjectiles <= 1 || !notFromSlug)
         {
             GameObject bullet;
-
             if(fireEffect == 0)
             {
                 bullet = Instantiate(projectile, position, firepoint.rotation);
@@ -60,7 +57,7 @@ public class Weapon : MonoBehaviour
 
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             var bulletObj = bullet.GetComponent<Projectile>();
-            bulletObj.damage = damage;
+            bulletObj.damage = (int)(damage * sizeIncrease);
             bulletObj.friendly = friendly;
             bulletObj.projectileDuration = projectileDuration;
             bullet.transform.localScale *= sizeIncrease;

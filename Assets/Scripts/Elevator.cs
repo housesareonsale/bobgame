@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class Elevator : MonoBehaviour
 {
+    public bool locked = false;
     public Animator animator;
     public GameState gameState;
+    public GameObject textPopupComponent;
     public bool setAnimation = false;
 
     void OnCollisionEnter2D(Collision2D collision)
     {
         Player player = collision.gameObject.GetComponent<Player>();
         
-        if( player != null)
+        if( player != null && !locked )
         {
             if(!setAnimation)
             {
@@ -20,6 +22,13 @@ public class Elevator : MonoBehaviour
                 setAnimation = true;
                 Invoke("GoToNextLevel", 1f);
             }
+        }
+
+        if(locked)
+        {
+            GameObject textPopup = Instantiate(textPopupComponent, transform.position + new Vector3(0.5f, 0.5f, 0), Quaternion.identity);
+            DamagePopup textPopupObj = textPopup.GetComponent<DamagePopup>();
+            textPopupObj.SetUpLockedElevator();
         }
     }
 

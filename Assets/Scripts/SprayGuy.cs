@@ -32,6 +32,7 @@ public class SprayGuy : Enemy
             Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(transform.position, attackRange, playerLayer);
             foreach (Collider2D player in hitPlayer)
             {
+                Target();
                 weapon.SlugShot(numBullets);
             }
         }

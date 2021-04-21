@@ -93,4 +93,19 @@ public class DamagePopup : MonoBehaviour
         sortingOrder++;
         textMesh.sortingOrder = sortingOrder;
     }
+
+    public void SetUpLockedElevator()
+    {
+        damageText = false;
+        textMesh.text = "I think I gotta finish the tasks on this level before heading down, otherwise I'm scared the elevator might crash.";
+
+        RectTransform rt = gameObject.GetComponent<RectTransform>();
+        rt.sizeDelta = new Vector2(100, 100);
+
+        textColor = new Color32(221, 160, 221,255);
+        textMesh.faceColor = textColor;
+
+        sortingOrder++;
+        textMesh.sortingOrder = sortingOrder;
+    }
 }

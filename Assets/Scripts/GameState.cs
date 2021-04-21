@@ -23,22 +23,29 @@ public class GameState : ScriptableObject
     public int enemyDamageIncrease;
     public float enemyFirerateIncrease;
     public List<UpgradeType> playerWeaponUpgrades;
-
-
     public int currentCurreny = 0;
+
 
     public void Initialize(int startFloor = 20)
     {
-        gameFloor = startFloor;
         maxGameFloor = gameFloor = startFloor;
-        maxNumEnemies = 0;
+        maxNumEnemies = 5;
+        attackIncreased = 0;
+        healthIncreased = 0;
+        enemyHealthIncrease = 0;
+        enemyDamageIncrease = 0;
+        enemyFirerateIncrease = 0;
         attackcost = 100;
         fireratecost = 100;
+        maxhealthcost = 100;
+        regencost = 100;
         playerWeaponUpgrades = new List<UpgradeType>();
+        currentCurreny = 0;
     }
 
     public void NextLevel()
     {
+        currHealth = gameController.playerControl.player.health;
         int randUpgrade = Random.Range(0,3);
 
         enemyDamageIncrease += 15;
@@ -46,7 +53,28 @@ public class GameState : ScriptableObject
         enemyFirerateIncrease -= 0.04f;
 
         gameFloor -= 1;
-        SceneManager.LoadScene("Game");
+
+        if(gameFloor == (int)(maxGameFloor*0.75))
+        {
+            // MEET 5 SNIPERS
+        }
+        else if (gameFloor == (int)(maxGameFloor*0.50))
+        {
+            // MEET BEN DOVER
+        }
+        else if (gameFloor == (int)(maxGameFloor*0.25))
+        {
+            // TWINS
+        }
+        else if (gameFloor == 0)
+        {
+            // FINAL BOSS
+        }
+        else
+        {
+            SceneManager.LoadScene("Game");
+        }
+
     }
 
     public void EnemyDied(int currenyDrop)
@@ -56,7 +84,7 @@ public class GameState : ScriptableObject
     }
 
     public void StartGame(){
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Start");
     }
 
     public void LoseGame(){

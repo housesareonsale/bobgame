@@ -13,12 +13,16 @@ public class GameController : MonoBehaviour
     public GameState gameState;
     public ScreenShake screenShake;
     public LayerMask enemySpawningLayerMask;
+    public bool cutScene = false;
+    public int maxNumEnemies;
+    public int gameFloor;
+    public int currNumEnemies;
+    public Transform finalRoomPosition;
+    public DialogueTrigger firstFloorStart;
+    public DialogueTrigger secondFloorStart;
 
-    int maxNumEnemies;
-    int gameFloor;
-    int currNumEnemies;
+    GameDialogState gameDialogState;
 
-    Transform finalRoomPosition;
 
     void Start()
     {
@@ -28,6 +32,8 @@ public class GameController : MonoBehaviour
         floor.text = "Floor " + gameState.gameFloor.ToString();
         maxNumEnemies = gameState.maxNumEnemies;
         currNumEnemies = 0;
+        cutScene = false;
+        gameDialogState = GameDialogState.NONE;
 
         // Update player here 
         playerControl.playerWeapon.damage += gameState.attackIncreased;
@@ -39,10 +45,21 @@ public class GameController : MonoBehaviour
             playerControl.player.health = gameState.currHealth;
         }
 
+        if(gameFloor == gameState.maxGameFloor - 1)
+        {
+            StartFirstFloor();
+        }
+
+        if(gameFloor == gameState.maxGameFloor - 2)
+        {
+            StartSecondFloor();
+        }
+
         Invoke("UpdateGraph", 5f);
         InvokeRepeating("SpawnEnemiesConstant", 7f, 2f);
     }
 
+    #region LEVEL AND ENEMIES
     void UpdateGraph()
     {
         // Reload the graph after 5 seconds of loading the screen
@@ -54,7 +71,10 @@ public class GameController : MonoBehaviour
 
     void SpawnEnemiesConstant()
     {
-        SpawnEnemies(1);
+        if(!cutScene)
+        {
+            SpawnEnemies(1);
+        }
     }
 
     public void SpawnEnemies(int numEnemiesToSpawn = 0, float startRange = 8f, float endRange = 13f)
@@ -78,7 +98,6 @@ public class GameController : MonoBehaviour
 
         for(int i = 0; i < enemiesSpawned; i++) 
         {
-
             Vector3 spawnLocation = Util.GetRandomPosition(playerControl.transform.position, startRange, endRange);
             Collider2D hitCollider = Physics2D.OverlapCircle(spawnLocation, 1, enemySpawningLayerMask);
             
@@ -120,7 +139,11 @@ public class GameController : MonoBehaviour
     {
         RoomType room = finalRoom.GetComponent<RoomType>();
         room.GenerateElevator();
-        playerControl.levelGenerationDone = true;
+
+        if(gameDialogState == GameDialogState.NONE)
+        {
+            playerControl.levelGenerationDone = true;
+        }
     }
 
     public void EnemyDied()
@@ -143,4 +166,43 @@ public class GameController : MonoBehaviour
     {
         playerControl.UpdatePlayerHealth(currIncrease, maxIncrease);
     }
+
+    #endregion
+    #region DIALOGUE
+    public virtual void CotinueEvent()
+    {
+        switch(gameDialogState)
+        {
+            case GameDialogState.FIRST_FLOOR_START:
+                playerControl.levelGenerationDone = true;
+                gameDialogState = GameDialogState.FIRST_FLOOR_END;
+                cutScene = false;
+                break;
+            case GameDialogState.SECOND_FLOOR_START:
+                playerControl.levelGenerationDone = true;
+                gameDialogState = GameDialogState.SECOND_FLOOR_END;
+                cutScene = false;
+                break;
+            default:
+            case GameDialogState.NONE:
+                break;
+        }
+    }
+
+    void StartFirstFloor()
+    {
+        cutScene = true;
+        playerControl.levelGenerationDone = false;
+        firstFloorStart.TriggerDialogue();
+        gameDialogState = GameDialogState.FIRST_FLOOR_START;
+    }
+
+    void StartSecondFloor()
+    {
+        cutScene = true;
+        playerControl.levelGenerationDone = false;
+        secondFloorStart.TriggerDialogue();
+        gameDialogState = GameDialogState.SECOND_FLOOR_START;
+    }
+    #endregion
 }
