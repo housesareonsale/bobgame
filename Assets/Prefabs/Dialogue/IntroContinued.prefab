@@ -43,10 +43,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e615d0b59ec9f654394f025da3038cb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue:
-    name: John Dough
-    sentences:
-    - OH MYYY GODDDD!! Ewwww did Denver just shoot his semen at me? Oh myyy GODDDDD.
-    - 'What is happenninggg, I''m going to off you with this stapler. Using the left
-      mouse button. '
+  conversation:
+  - name: John Dough
+    sentence: WHATTT THEEEE HELLLLL!!! AHHHHHH OH MY MG, did you just ShOOT YOurr
+      SeemMMEn at me?
     shakeScreen: 1
+  - name: John Dough
+    sentence: I'm gonna have to off you with this stapler I happen to have in my
+      hands, using the Left Mouse Button.
+    shakeScreen: 0

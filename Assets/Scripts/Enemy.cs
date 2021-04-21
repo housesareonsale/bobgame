@@ -100,7 +100,7 @@ public class Enemy : MonoBehaviour
 
                 case EnemyState.CHASING:
                     enemyMovement.SetTarget(targetPosition.position);
-                    
+
                     var distance = Vector3.Distance(transform.position, targetPosition.position);
                     FindTarget(2);
 
@@ -114,6 +114,10 @@ public class Enemy : MonoBehaviour
 
                     break;
             }
+        }
+        else
+        {
+            enemyMovement.StopMove();
         }
     }
 

@@ -43,11 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e615d0b59ec9f654394f025da3038cb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue:
-    name: John Dough
-    sentences:
-    - Ah crap that elevator was scary. I probably have to do that sequence every
-      time I use the evelators, and I can't go down more than one level.
-    - But at the very least, getting off the elevator restored some of my health.
-      Ah well time to go down to Ben.
+  conversation:
+  - name: John Dough
+    sentence: Damn what the hell just happended in the elevator. I have a feeling
+      this will be happening on every floor. I should try finding the next elevator.
     shakeScreen: 0

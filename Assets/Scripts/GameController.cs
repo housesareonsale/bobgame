@@ -8,6 +8,8 @@ public class GameController : MonoBehaviour
 {
     public GameObject badMan;
     public GameObject sprayMan;
+    public GameObject wizMan;
+    public GameObject hrMan;
     public PlayerControl playerControl;
     public TextMeshProUGUI floor;
     public GameState gameState;
@@ -107,12 +109,13 @@ public class GameController : MonoBehaviour
                 hitCollider = Physics2D.OverlapCircle(spawnLocation, 1, enemySpawningLayerMask);
             }
 
-            int rand = Random.Range(0, 4);
-            // 20% chance to spawn a skull girl
-            // 80% chance to spawn a rocky monster 
-            GameObject enemy =  rand == 0 ? 
-                Instantiate(sprayMan, spawnLocation, Quaternion.identity) : 
-                Instantiate(badMan, spawnLocation, Quaternion.identity);
+            int rand = Random.Range(0, 2);
+            // 50% chance to spawn a spray guy
+            // 50% chance to spawn a bad guy
+            GameObject enemy =  rand == 0 ?
+                Instantiate(badMan, spawnLocation, Quaternion.identity) : 
+                Instantiate(sprayMan, spawnLocation, Quaternion.identity);
+
 
             // half the size of the enemies because they use sprite stiching which make them appear bigger
             // scaling is also done in EnemyMovement at the end of FixedUpdate so make sure to change that if

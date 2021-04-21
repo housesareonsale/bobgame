@@ -43,15 +43,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e615d0b59ec9f654394f025da3038cb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue:
-    name: John Dough
-    sentences:
-    - I seemed to have gone only a level down instead of to Bens floor, that is weird.
-      I should look for the next elevator to head down again, and keep my guard up,
-      I have a feeling Denver won't be the last guy I have to off.
-    - 'My God, this office always seemed like a maze, and the dim lights are making
-      it even worse. '
-    - I should probably keep my eyes peeled for more vending machines, I don't know
-      what is in them, but they seem to give my stapler extra super powers, which
-      I think I'm going to need if I want to get out of this office.
+  conversation:
+  - name: John Dough
+    sentence: What the? I only came down a floor, I could've sorn I clicked to Ben's
+      level which is halfway through the building.
+    shakeScreen: 0
+  - name: John Dough
+    sentence: Oh well! Guess I'll just have to find another elevator. I should probably
+      also keep my eyes open for Vending Machines, they seem to make my already unbelievable
+      strong stapler stronger.
+    shakeScreen: 0
+  - name: John Dough
+    sentence: I'm sure this won't be the end of seeing these digusting people. I
+      should keep my guard up.
     shakeScreen: 0

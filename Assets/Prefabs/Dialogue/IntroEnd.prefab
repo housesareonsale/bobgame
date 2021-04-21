@@ -43,15 +43,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e615d0b59ec9f654394f025da3038cb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue:
-    name: John Dough
-    sentences:
-    - Ah god dammit, what was that! I can't believe what he just did. I'm gonna need
-      to grab a drink from the Vending Machine at the Top Right of this room, to
-      wash this stuff off my tongue.
-    - But he seemed to have dropped some Life Juice. I think I can use this Life
-      Juice to get stronger by interacting with the menu on the bottom left of the
-      screen.
-    - I should probably head down half way through the building to go tell Ben about
-      this.
+  conversation:
+  - name: John Dough
+    sentence: Ahh that was disgusting, I'm gonna need to grab something from the
+      Vending Machine at the top right of the screen, to get this taste off my tongue.
+    shakeScreen: 0
+  - name: John Dough
+    sentence: 'At the very least, Denver seemed to have dropped some Life Juice,
+      drinking this might make me stronger.
+
+'
+    shakeScreen: 0
+  - name: John Dough
+    sentence: I'll probably head down the elevator to tell Ben about everything that
+      happened, after grabbing something from the Vending Machine.
     shakeScreen: 0

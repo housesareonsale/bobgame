@@ -7,6 +7,8 @@ public class EnemyMovement : MonoBehaviour
     public float speed = 200f;
     public float nextWaypointDistance = 3f;
     public EnemyAnimator enemyAnimator;
+    public float enemyScale = 0.5f;
+
     Vector3 currentTarget;
     Path path;
     int currentWayPoint = 0;
@@ -74,8 +76,8 @@ public class EnemyMovement : MonoBehaviour
 
     public void SetTarget(Vector3 target)
     {
-
         currentTarget = target;
+        ContinueMove();
     }
     public void StopMove()
     {
@@ -91,11 +93,11 @@ public class EnemyMovement : MonoBehaviour
     {
         if(rightCondition)
         {
-            enemyPosition.localScale = new Vector3(-0.5f, 0.5f, 1f);
+            enemyPosition.localScale = new Vector3(-1 * enemyScale, 1 * enemyScale, 1f);
         }
         else if(leftCondition)
         {
-            enemyPosition.localScale = new Vector3(0.5f, 0.5f, 1f);
+            enemyPosition.localScale = new Vector3(1 * enemyScale, 1 * enemyScale, 1f);
         }
 
     }

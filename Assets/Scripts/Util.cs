@@ -9,9 +9,22 @@ public static class Util
     static int upybound = 20;
     static int downybound = -20;
 
-    static public Vector3 GetRandomPosition(Vector3 startPosition, float startRange = 7f, float endRange = 11f)
+    static public Vector3 GetRandomPosition(
+        Vector3 startPosition, 
+        float startRange = 7f, 
+        float endRange = 11f,
+        int paramrightxbound = 30,
+        int paramleftxbound = -10,
+        int paramupybound = 20,
+        int paramdownybound = -20
+    )
     {
         Vector3 spawnPosition = startPosition + GetRandomDir() * GetRandomDist(); 
+
+        rightxbound = paramrightxbound;
+        leftxbound = paramleftxbound;
+        upybound = paramupybound;
+        downybound = paramdownybound;
 
         // if the random position is outside the range of the map
         // generate a random position within the map
@@ -25,6 +38,8 @@ public static class Util
             spawnPosition.x = Random.Range(leftxbound + 5, rightxbound - 5);
             spawnPosition.y = Random.Range(downybound + 5, upybound - 5);
         }
+
+        rightxbound = 0;
 
         return spawnPosition;
     }

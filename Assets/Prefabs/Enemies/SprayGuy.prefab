@@ -939,11 +939,14 @@ MonoBehaviour:
   effectProjectile: {fileID: 0}
   shooter: {fileID: 9191867040288984247}
   damage: 15
-  projectileForce: 15
+  projectileForce: 3
   animator: {fileID: 0}
   enemyAnimator: {fileID: 0}
   projectileDuration: 2
   friendly: 0
+  fireEffect: 0
+  numProjectiles: 4
+  sizeIncrease: 0
 --- !u!114 &9191867040288984253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -980,6 +983,7 @@ MonoBehaviour:
   speed: 200
   nextWaypointDistance: 3
   enemyAnimator: {fileID: 9191867040288984253}
+  enemyScale: 0.5
 --- !u!114 &9191867040288984246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1029,7 +1033,6 @@ MonoBehaviour:
   firepoint: {fileID: 9191867039395442077}
   accuracy: 0.1
   projectileDuration: 1.5
-  numBullets: 4
 --- !u!95 &9191867040288984248
 Animator:
   serializedVersion: 3

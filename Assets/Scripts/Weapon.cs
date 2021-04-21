@@ -9,20 +9,15 @@ public class Weapon : MonoBehaviour
     public GameObject effectProjectile;
     public GameObject shooter;
     public int damage = 1000;
-    public float projectileForce = 20f;
+    public float projectileForce;
     public Animator animator;
     public EnemyAnimator enemyAnimator;
     public float projectileDuration = 2;
     public bool friendly;
-    public int fireEffect;
-    public int numProjectiles;
-    public float sizeIncrease;
+    public int fireEffect = 0;
+    public int numProjectiles = 1;
+    public float sizeIncrease = 1f;
 
-    void Start()
-    {
-        sizeIncrease = 1f;
-        numProjectiles = 1;
-    }
 
     public void Shoot(Vector3? optionalDirection = null, bool notFromSlug = true)
     {
@@ -68,13 +63,35 @@ public class Weapon : MonoBehaviour
         }
         else if(notFromSlug)
         {
-            SlugShot(numProjectiles);
+            SlugShot();
         }
     }
 
-    public void SlugShot(int numBullets)
+    public void MultiDirShot()
     {
-        for(int i = 0; i < numBullets; i++)
+        Vector3[] attackPositions = {
+            new Vector3(1f, 0f, 0f),
+            new Vector3(0f, 1f, 0f),
+            new Vector3(-1f, 0f, 0f),
+            new Vector3(0f, -1f, 0f),
+            new Vector3(1f, 1f, 0f),
+            new Vector3(1f, -1f, 0f),
+            new Vector3(-1f, 1f, 0f),
+            new Vector3(-1f, -1f, 0f),
+        };
+
+        for(int i = 0; i < numProjectiles; i++)
+        {
+            Vector3 direction = attackPositions[i % attackPositions.Length];
+            firepoint.right = direction;
+
+            Shoot(direction, false);
+        }
+    }
+
+    public void SlugShot()
+    {
+        for(int i = 0; i < numProjectiles; i++)
         {
             Vector3 offset = new Vector3((Random.Range(1f, 3f) / 10), (Random.Range(0.5f, 0.8f) / 10), 0) * sizeIncrease;
             Vector3 direction = firepoint.right + offset;

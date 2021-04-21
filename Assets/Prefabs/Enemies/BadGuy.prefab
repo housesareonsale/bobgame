@@ -400,11 +400,14 @@ MonoBehaviour:
   effectProjectile: {fileID: 0}
   shooter: {fileID: 3558746731613839159}
   damage: 10
-  projectileForce: 20
+  projectileForce: 4
   animator: {fileID: 0}
   enemyAnimator: {fileID: 0}
   projectileDuration: 2
   friendly: 0
+  fireEffect: 0
+  numProjectiles: 0
+  sizeIncrease: 0
 --- !u!114 &3558746731613839165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -420,9 +423,11 @@ MonoBehaviour:
   face: {fileID: 3558746731290322659}
   body: {fileID: 3558746732355164319}
   leg: {fileID: 3558746733089572873}
+  boss: {fileID: 0}
   faceRenderer: {fileID: 3558746731290322658}
   bodyRenderer: {fileID: 3558746732355164318}
   legRenderer: {fileID: 3558746733089572872}
+  isBoss: 0
   firerate: 0.5
 --- !u!114 &3558746731613839164
 MonoBehaviour:
@@ -439,6 +444,7 @@ MonoBehaviour:
   speed: 200
   nextWaypointDistance: 3
   enemyAnimator: {fileID: 3558746731613839165}
+  enemyScale: 0.5
 --- !u!114 &3558746731613839155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -478,6 +484,11 @@ MonoBehaviour:
   maxHealth: 150
   timeTillDespawn: 5
   boss: 0
+  cutScene: 0
+  dead: 0
+  deathEvent:
+    m_PersistentCalls:
+      m_Calls: []
   firerate: 0.5
   weapon: {fileID: 3558746731613839166}
   firepoint: {fileID: 3558746732859653661}

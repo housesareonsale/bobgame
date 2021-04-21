@@ -11,16 +11,16 @@ public class DialogueManager : MonoBehaviour
     public ScreenShake shaker;
     public GameController gameController;
     public GameObject dialogBox;
-    Queue<string> sentences;
+    Queue<Dialogue> dialogues;
 
     Coroutine currentCoroutine;
     bool continueEvent = false;
     void Start()
     {
-        sentences = new Queue<string>();    
+        dialogues = new Queue<Dialogue>();    
     }
 
-    public void StartDialogue(Dialogue dialogue)
+    public void StartDialogue(Dialogue[] conversation)
     {
         if(!dialogBox.activeInHierarchy)
         {
@@ -28,18 +28,12 @@ public class DialogueManager : MonoBehaviour
         }
 
         boxAnimator.SetTrigger("StartDialogue");
-        nameBox.text = dialogue.name;
 
-        sentences.Clear();
+        dialogues.Clear();
 
-        foreach(string sentence in dialogue.sentences)
+        foreach(Dialogue dialogue in conversation)
         {
-            sentences.Enqueue(sentence);
-        }
-
-        if(dialogue.shakeScreen)
-        {
-            shaker.Shake(0.8f);
+            dialogues.Enqueue(dialogue);
         }
 
         continueEvent = true;
@@ -48,21 +42,27 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextSentence()
     {
-        if(sentences.Count == 0)
+        if(dialogues.Count == 0)
         {
             EndDialogue();
             return;
         }
 
 
-        string sentence = sentences.Dequeue();
+        Dialogue dialogue = dialogues.Dequeue();
+        nameBox.text = dialogue.name;
+
+        if(dialogue.shakeScreen)
+        {
+            shaker.Shake(0.8f);
+        }
 
         if(currentCoroutine != null)
         {
             StopCoroutine(currentCoroutine);
         }
 
-        currentCoroutine = StartCoroutine(TypeSentence(sentence));
+        currentCoroutine = StartCoroutine(TypeSentence(dialogue.sentence));
     }
 
     IEnumerator TypeSentence(string sentence)

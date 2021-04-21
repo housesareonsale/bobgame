@@ -43,10 +43,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e615d0b59ec9f654394f025da3038cb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue:
-    name: John Dough
-    sentences:
-    - Ah.. that was a nice smoke break. Better get back to work now. Hey is that
-      Denver Col?
-    - Heyy Denver!! I didn't know you smoked. Wait what is he doing? He seems to
-      be moving his hands back and forth in rapid succession? Huh...?
+  conversation:
+  - name: John Dough
+    sentence: Ahhh that was a really nice smoke break. I should start heading back
+      to the office. Hey is that Denver Col over there?
+    shakeScreen: 0
+  - name: John Dough
+    sentence: Hey Col, whats up? I didn't know you smoked. Wait.. what are you doing?
+      You seem to be furiously moving your hand back and forth?
+    shakeScreen: 0

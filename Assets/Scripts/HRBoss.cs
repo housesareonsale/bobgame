@@ -8,7 +8,6 @@ public class HRBoss : Enemy
     public Transform firepoint;
     public float accuracy;
     public float projectileDuration;
-    public int numBullets = 4;
 
     Transform enemyPosition;
 
@@ -34,7 +33,7 @@ public class HRBoss : Enemy
             foreach (Collider2D player in hitPlayer)
             {
                 Target();
-                weapon.SlugShot(numBullets);
+                weapon.SlugShot();
             }
         }
     }

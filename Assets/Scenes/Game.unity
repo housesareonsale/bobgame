@@ -18444,6 +18444,9 @@ MonoBehaviour:
   enemyAnimator: {fileID: 0}
   projectileDuration: 1.5
   friendly: 0
+  fireEffect: 0
+  numProjectiles: 0
+  sizeIncrease: 0
 --- !u!114 &1052329320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18625,7 +18628,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1094949398
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20905,6 +20908,8 @@ MonoBehaviour:
   badMan: {fileID: 3558746731613839159, guid: 5c883d1c13c831f41b3f08e7d28c6359, type: 3}
   sprayMan: {fileID: 9191867040288984247, guid: 00d86789b8f81f64b8f0053454d8f9d9,
     type: 3}
+  wizMan: {fileID: 3891855856225956985, guid: 82c77c3a647529c49825e33e603024bb, type: 3}
+  hrMan: {fileID: 516331010291373976, guid: cbee21a4c2ca8604486466af497c8092, type: 3}
   playerControl: {fileID: 1052329313}
   floor: {fileID: 1143910358}
   gameState: {fileID: 11400000, guid: 8a34a671fc7cefe438a2154dc7f952d5, type: 2}

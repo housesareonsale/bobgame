@@ -64,7 +64,7 @@ public class GameState : ScriptableObject
         }
         else if (gameFloor == (int)(maxGameFloor*0.25))
         {
-            // TWINS
+            SceneManager.LoadScene("TwinBoss");
         }
         else if (gameFloor == 0)
         {

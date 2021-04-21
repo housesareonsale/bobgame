@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &241736072838819422
+--- !u!1 &854874260143098961
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 241736072838819416}
-  - component: {fileID: 241736072838819417}
+  - component: {fileID: 854874260143098967}
+  - component: {fileID: 854874260143098966}
   m_Layer: 0
-  m_Name: SprayEnemyParts
+  m_Name: HREnemyParts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &241736072838819416
+--- !u!4 &854874260143098967
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 241736072838819422}
+  m_GameObject: {fileID: 854874260143098961}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.3960185, y: 0.19904605, z: -0.43422058}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,20 +31,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &241736072838819417
+--- !u!114 &854874260143098966
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 241736072838819422}
+  m_GameObject: {fileID: 854874260143098961}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2c4cb2567dd0f8f4ca44938defd04313, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   face:
-  - {fileID: 6009881240455555466, guid: 01d133cd5c21daa48b231a33bc8a633e, type: 3}
+  - {fileID: 959031850286196280, guid: 5b588dd468806e048aae9c2ada442f79, type: 3}
+  - {fileID: 7327642735105429295, guid: a1130618b94a22f4da9afea43dadc9f7, type: 3}
   body:
   - {fileID: 7853584815378284249, guid: 4efb67748ff2d4743ad7d169d6a4f09e, type: 3}
   - {fileID: 7788365968857701030, guid: f1b6e35096d9ef24d8bfa26eaa15223c, type: 3}
