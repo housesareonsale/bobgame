@@ -90,6 +90,8 @@
     <Compile Include="Assets\Scripts\Util.cs" />
     <Compile Include="Assets\Scripts\WizGuy.cs" />
     <Compile Include="Assets\Scripts\HRGuy.cs" />
+    <Compile Include="Assets\Scripts\GameControllerBenDover.cs" />
+    <Compile Include="Assets\Scripts\BenDover.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

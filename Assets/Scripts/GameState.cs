@@ -60,7 +60,7 @@ public class GameState : ScriptableObject
         }
         else if (gameFloor == (int)(maxGameFloor*0.50))
         {
-            // MEET BEN DOVER
+            SceneManager.LoadScene("BenDover");
         }
         else if (gameFloor == (int)(maxGameFloor*0.25))
         {

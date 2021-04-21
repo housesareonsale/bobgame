@@ -36,3 +36,10 @@ public enum TwinBossDialogState
 {
     INTRO, INTRO_CONTINUED, BOSS_FIGHT, ONE_DIED, TWO_DIED, FIGHT_END
 }
+
+public enum BenDoverDialogState
+{
+    INTRO, INTRO_CONTINUED, BOSS_FIGHT, HALF_WAY, FIGHT_END
+}
+
+

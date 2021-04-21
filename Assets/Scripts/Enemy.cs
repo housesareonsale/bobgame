@@ -147,8 +147,8 @@ public class Enemy : MonoBehaviour
         health -= damage;
 
         var renderer = gameObject.GetComponent<Renderer>();
+        DamageExtra();
 
-        // enemyAnimator.Flash();
         GameObject damagePopup = Instantiate(damagePopupComponent, transform.position + new Vector3(0.5f, 0.5f, 0), Quaternion.identity);
         DamagePopup damagePopupObj = damagePopup.GetComponent<DamagePopup>();
         damagePopupObj.Setup(damage, false, burn);
@@ -194,6 +194,11 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public virtual void DamageExtra()
+    {
+
+    } 
     # endregion
 
     public void UpdateCurrencyDrop(float percentIncrease)

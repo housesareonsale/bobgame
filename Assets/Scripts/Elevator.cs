@@ -29,6 +29,7 @@ public class Elevator : MonoBehaviour
             GameObject textPopup = Instantiate(textPopupComponent, transform.position + new Vector3(0.5f, 0.5f, 0), Quaternion.identity);
             DamagePopup textPopupObj = textPopup.GetComponent<DamagePopup>();
             textPopupObj.SetUpLockedElevator();
+            Destroy(textPopup, 8f);
         }
     }
 

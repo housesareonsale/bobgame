@@ -123,4 +123,19 @@ public class DamagePopup : MonoBehaviour
         sortingOrder++;
         textMesh.sortingOrder = sortingOrder;
     }
+
+    public void SetUpBenDover()
+    {
+        damageText = false;
+        textMesh.text = "Please come back to your senses Ben. I don't wanna off you..";
+
+        RectTransform rt = gameObject.GetComponent<RectTransform>();
+        rt.sizeDelta = new Vector2(100, 100);
+
+        textColor = new Color32(221, 160, 221,255);
+        textMesh.faceColor = textColor;
+
+        sortingOrder++;
+        textMesh.sortingOrder = sortingOrder;
+    }
 }
