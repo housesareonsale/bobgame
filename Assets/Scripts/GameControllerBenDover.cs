@@ -14,10 +14,6 @@ public class GameControllerBenDover : GameController
     public DialogueTrigger benDoverContinued;
     public DialogueTrigger benDoverEnd;
 
-    [Header("Events")]
-    [Space]
-    public UnityEvent deathEvent;
-
     BenDoverDialogState benDoverDialogState;
 
     void Start()
@@ -42,6 +38,8 @@ public class GameControllerBenDover : GameController
             playerControl.player.health = gameState.currHealth;
         }
 
+        audioController = GameObject.FindGameObjectWithTag("AudioController").GetComponent<AudioController>(); 
+
         Invoke("StartBenInteraction", 5f);        
     }
 
@@ -53,6 +51,7 @@ public class GameControllerBenDover : GameController
                 Invoke("ContinueBenInteraction", 0.05f);
                 break;
             case BenDoverDialogState.INTRO_CONTINUED:
+                audioController.PlayNormalMusicHighTempo();
                 playerControl.levelGenerationDone = true;
                 benDoverEnemy.cutScene = false;
                 benDoverDialogState = BenDoverDialogState.BOSS_FIGHT;
@@ -84,6 +83,7 @@ public class GameControllerBenDover : GameController
 
     void HalfWayThere()
     {
+        audioController.PlaySadMusic();
         GameObject textPopup = Instantiate(textPopupComponent, playerControl.transform.position + new Vector3(0.5f, 0.5f, 0), Quaternion.identity);
         DamagePopup textPopupObj = textPopup.GetComponent<DamagePopup>();
         textPopupObj.SetUpBenDover();

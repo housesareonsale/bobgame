@@ -29,7 +29,14 @@ public class DialogueManager : MonoBehaviour
 
         boxAnimator.SetTrigger("StartDialogue");
 
-        dialogues.Clear();
+        if(dialogues == null)
+        {
+            dialogues = new Queue<Dialogue>();
+        }
+        else
+        {
+            dialogues.Clear();
+        }
 
         foreach(Dialogue dialogue in conversation)
         {

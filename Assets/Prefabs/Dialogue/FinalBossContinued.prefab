@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &337403350598503247
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2044614830470584635}
+  - component: {fileID: 8176893600660139323}
+  m_Layer: 0
+  m_Name: FinalBossContinued
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2044614830470584635
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337403350598503247}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8176893600660139323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337403350598503247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e615d0b59ec9f654394f025da3038cb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  conversation:
+  - name: John Dough
+    sentence: Hey that looks like my Boss. Looks like he also got to the last floor.
+      Hey boss are you one of those freak?
+    shakeScreen: 0
+  - name: Boss
+    sentence: John Dough? How did you get here?
+    shakeScreen: 0
+  - name: John Dough
+    sentence: I dunno boss I had to off so many people on my way down here, everyone
+      is acting extremely weird. How did you get down here?
+    shakeScreen: 0
+  - name: Boss
+    sentence: Oh so you are the one.
+    shakeScreen: 0
+  - name: John Dough
+    sentence: What? What do you mean? Do you know about everything that is going
+      on?
+    shakeScreen: 0
+  - name: Boss
+    sentence: HAHAHAHA ofcourse I do. I'm the one who orchestrated all of this.
+    shakeScreen: 1
+  - name: John Dough
+    sentence: What? What are you saying? I don't get it...
+    shakeScreen: 0
+  - name: Boss
+    sentence: You fool, how were you the only one not affected. I poisoned the air
+      vents so everyone in this office would turn into a semen demon.
+    shakeScreen: 0
+  - name: Boss
+    sentence: 'But it looks like you weren''t affected, it only seemed to make you
+      stronger. We are the same you and I. It also made me stronger. '
+    shakeScreen: 0
+  - name: Boss
+    sentence: But I'm afraid this it where it ends for you, bye, my son.
+    shakeScreen: 0
+  - name: John Dough
+    sentence: What? Son? What do you mean? I'm not getting anything.
+    shakeScreen: 0

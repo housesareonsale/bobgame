@@ -21,6 +21,7 @@ public class GameControllerIntro : GameController
         floor.text = "Floor " + gameState.gameFloor.ToString();
         maxNumEnemies = gameState.maxNumEnemies;
         currNumEnemies = 0;
+        audioController = GameObject.FindGameObjectWithTag("AudioController").GetComponent<AudioController>(); 
 
         StartIntro();
     }
@@ -60,6 +61,7 @@ public class GameControllerIntro : GameController
 
     void ContinueIntro()
     {
+        audioController.PlayNormalMusic();
         denverCol.cutScene = true;
         introContinued.TriggerDialogue();
         introDialogueState = IntroDialogueState.INTRO_CONTINUED;

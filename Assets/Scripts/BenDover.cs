@@ -8,6 +8,7 @@ public class BenDover : Enemy
     public Transform firepoint;
     public float accuracy;
     public float projectileDuration;
+    public bool notBen;
 
     Transform enemyPosition;
     bool messaged = false;
@@ -50,7 +51,7 @@ public class BenDover : Enemy
 
     public override void DamageExtra()
     {
-        if(health <= (maxHealth/2) && !messaged)
+        if(!notBen && health <= (maxHealth/2) && !messaged)
         {
             messaged = true;
             if(deathEvent != null)

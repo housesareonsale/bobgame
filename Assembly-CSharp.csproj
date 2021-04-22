@@ -60,10 +60,12 @@
     <Compile Include="Assets\Scripts\BadMan.cs" />
     <Compile Include="Assets\Scripts\Projectile.cs" />
     <Compile Include="Assets\Scripts\EnemyParts.cs" />
+    <Compile Include="Assets\Scripts\GameControllerMonsterParty.cs" />
     <Compile Include="Assets\Scripts\UpgradePanel.cs" />
     <Compile Include="Assets\Scripts\EnemyAnimator.cs" />
     <Compile Include="Assets\Scripts\SprayGuy.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
+    <Compile Include="Assets\Scripts\GameControllerBenDover.cs" />
     <Compile Include="Assets\Scripts\Dialogue.cs" />
     <Compile Include="Assets\Scripts\LevelGeneration.cs" />
     <Compile Include="Assets\Scripts\DialogueTrigger.cs" />
@@ -72,6 +74,7 @@
     <Compile Include="Assets\Scripts\GameControllerIntro.cs" />
     <Compile Include="Assets\Scripts\EnemyMovement.cs" />
     <Compile Include="Assets\Scripts\HRBoss.cs" />
+    <Compile Include="Assets\Scripts\HRGuy.cs" />
     <Compile Include="Assets\Scripts\DialogueManager.cs" />
     <Compile Include="Assets\Scripts\PlayerControl.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
@@ -84,15 +87,16 @@
     <Compile Include="Assets\Scripts\GameState.cs" />
     <Compile Include="Assets\Scripts\RoomType.cs" />
     <Compile Include="Assets\Scripts\EffectProjectile.cs" />
+    <Compile Include="Assets\Scripts\BenDover.cs" />
     <Compile Include="Assets\Scripts\VendingMachine.cs" />
+    <Compile Include="Assets\Scripts\WizGuy.cs" />
+    <Compile Include="Assets\Scripts\GameControllerElevator.cs" />
     <Compile Include="Assets\Scripts\Weapon.cs" />
     <Compile Include="Assets\Scripts\Obstacle.cs" />
     <Compile Include="Assets\Scripts\Util.cs" />
-    <Compile Include="Assets\Scripts\WizGuy.cs" />
-    <Compile Include="Assets\Scripts\HRGuy.cs" />
-    <Compile Include="Assets\Scripts\GameControllerBenDover.cs" />
-    <Compile Include="Assets\Scripts\BenDover.cs" />
-    <Compile Include="Assets\Scripts\GameControllerElevator.cs" />
+    <Compile Include="Assets\Scripts\GameControllerFinalBoss.cs" />
+    <Compile Include="Assets\Scripts\ColliderTrigger.cs" />
+    <Compile Include="Assets\Scripts\AudioController.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

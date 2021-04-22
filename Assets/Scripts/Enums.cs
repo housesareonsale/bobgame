@@ -42,4 +42,17 @@ public enum BenDoverDialogState
     INTRO, INTRO_CONTINUED, BOSS_FIGHT, HALF_WAY, FIGHT_END
 }
 
+public enum MonsterPartyDialogState
+{
+    INTRO, BOSS_FIGHT, BEAT_BOSS, FIGHT_END
+}
 
+public enum EnemyType
+{
+    BAD_MAN, SPRAY_MAN, WIZ_MAN, HR_MAN
+}
+
+public enum FinalBossDialogueState
+{
+    INTRO, INTRO_CONTINUED, INTRO_NEXT, BOSS_FIGHT, BEAT_BOSS, FIGHT_END
+}

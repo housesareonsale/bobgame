@@ -17,16 +17,17 @@ MonoBehaviour:
   maxNumEnemies: 4
   gameController: {fileID: 0}
   playerLocation: {fileID: 0}
-  attackIncreased: 0
+  attackIncreased: 14
   healthIncreased: 0
   currHealth: 0
-  firerateIncreased: 0
-  attackcost: 100
-  fireratecost: 100
+  firerateIncreased: 0.24
+  attackcost: 400
+  fireratecost: 800
   maxhealthcost: 100
   regencost: 100
   enemyHealthIncrease: 0
   enemyDamageIncrease: 0
   enemyFirerateIncrease: 0
-  playerWeaponUpgrades: 
-  currentCurreny: 0
+  playerWeaponUpgrades: 0000000001000000010000000100000002000000
+  enemyTypes: 000000000000000001000000
+  currentCurreny: 130

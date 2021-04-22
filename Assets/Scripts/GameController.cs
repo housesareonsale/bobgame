@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 using TMPro;
+using UnityEngine.Events;
 
 public class GameController : MonoBehaviour
 {
@@ -22,6 +23,11 @@ public class GameController : MonoBehaviour
     public Transform finalRoomPosition;
     public DialogueTrigger firstFloorStart;
     public DialogueTrigger secondFloorStart;
+    public AudioController audioController;
+
+    [Header("Events")]
+    [Space]
+    public UnityEvent deathEvent;
 
     GameDialogState gameDialogState;
 
@@ -109,31 +115,52 @@ public class GameController : MonoBehaviour
                 hitCollider = Physics2D.OverlapCircle(spawnLocation, 1, enemySpawningLayerMask);
             }
 
-            int rand = Random.Range(0, 2);
-            // 50% chance to spawn a spray guy
-            // 50% chance to spawn a bad guy
-            GameObject enemy =  rand == 0 ?
-                Instantiate(badMan, spawnLocation, Quaternion.identity) : 
-                Instantiate(sprayMan, spawnLocation, Quaternion.identity);
+            SpawnEnemy(spawnLocation);
+        }
+    }
 
+    public void SpawnEnemy(Vector3 spawnLocation)
+    {
+        EnemyType enemyType = gameState.GetEnemyToSpawn();
+        GameObject enemy =  null;
 
-            // half the size of the enemies because they use sprite stiching which make them appear bigger
-            // scaling is also done in EnemyMovement at the end of FixedUpdate so make sure to change that if
-            // any changes to scale have to be made
-            enemy.transform.localScale = new Vector3(0.5f, 0.5f, 1f);
+        if(enemyType == EnemyType.SPRAY_MAN)
+        {
+            enemy =  Instantiate(sprayMan, spawnLocation, Quaternion.identity);
+        }
+        else if(enemyType == EnemyType.HR_MAN)
+        {
+            enemy =  Instantiate(hrMan, spawnLocation, Quaternion.identity);
+        }
+        else if(enemyType == EnemyType.WIZ_MAN)
+        {
+            enemy =  Instantiate(wizMan, spawnLocation, Quaternion.identity);
+        }
+        else
+        {
+            enemy =  Instantiate(badMan, spawnLocation, Quaternion.identity);
+        }
 
-            Enemy enemyObj = enemy.GetComponent<Enemy>();
-            if(enemyObj != null)
+        // half the size of the enemies because they use sprite stiching which make them appear bigger
+        // scaling is also done in EnemyMovement at the end of FixedUpdate so make sure to change that if
+        // any changes to scale have to be made
+        enemy.transform.localScale = new Vector3(0.5f, 0.5f, 1f);
+
+        Enemy enemyObj = enemy.GetComponent<Enemy>();
+        if(enemyObj != null)
+        {
+            float originalTotalVal = (float)enemyObj.health + (float)enemyObj.enemyDamage - enemyObj.firerate; 
+            float increasedTotalVal = 
+                (float)gameState.enemyHealthIncrease + 
+                (float)gameState.enemyDamageIncrease - 
+                gameState.enemyFirerateIncrease;
+
+            enemyObj.UpdateCurrencyDrop( increasedTotalVal/originalTotalVal );
+            enemyObj.screenShake = screenShake;
+            enemyObj.targetPosition = playerControl.transform;
+            if(deathEvent != null)
             {
-                float originalTotalVal = (float)enemyObj.health + (float)enemyObj.enemyDamage - enemyObj.firerate; 
-                float increasedTotalVal = 
-                    (float)gameState.enemyHealthIncrease + 
-                    (float)gameState.enemyDamageIncrease - 
-                    gameState.enemyFirerateIncrease;
-
-                enemyObj.UpdateCurrencyDrop( increasedTotalVal/originalTotalVal );
-                enemyObj.screenShake = screenShake;
-                enemyObj.targetPosition = playerControl.transform;
+                enemyObj.deathEvent = deathEvent;
             }
         }
     }

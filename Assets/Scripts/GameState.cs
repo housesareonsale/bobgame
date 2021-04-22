@@ -23,10 +23,11 @@ public class GameState : ScriptableObject
     public int enemyDamageIncrease;
     public float enemyFirerateIncrease;
     public List<UpgradeType> playerWeaponUpgrades;
+    public List<EnemyType> enemyTypes;
     public int currentCurreny = 0;
 
 
-    public void Initialize(int startFloor = 20)
+    public void Initialize(int startFloor = 10)
     {
         maxGameFloor = gameFloor = startFloor;
         maxNumEnemies = 5;
@@ -41,12 +42,31 @@ public class GameState : ScriptableObject
         regencost = 100;
         playerWeaponUpgrades = new List<UpgradeType>();
         currentCurreny = 0;
+        enemyTypes = new List<EnemyType>(); 
+        enemyTypes.Add(EnemyType.BAD_MAN);
     }
 
     public void NextLevel(bool exiting)
     {
         if(!exiting)
         {
+            if(gameFloor < (int)(maxGameFloor*0.75))
+            {
+                enemyTypes.Add(EnemyType.SPRAY_MAN);
+            }
+            else if (gameFloor < (int)(maxGameFloor*0.50))
+            {
+                enemyTypes.Add(EnemyType.HR_MAN);
+            }
+            else if (gameFloor < (int)(maxGameFloor*0.25))
+            {
+                enemyTypes.Add(EnemyType.WIZ_MAN);
+            }
+            else
+            {
+                enemyTypes.Add(EnemyType.BAD_MAN);
+            }
+
             SceneManager.LoadScene("Elevator");
         }
         else
@@ -54,15 +74,15 @@ public class GameState : ScriptableObject
             currHealth = gameController.playerControl.player.health;
             int randUpgrade = Random.Range(0,3);
 
-            enemyDamageIncrease += 15;
-            enemyHealthIncrease += 28;
-            enemyFirerateIncrease -= 0.04f;
+            enemyDamageIncrease += 20;
+            enemyHealthIncrease += 100;
+            enemyFirerateIncrease -= 0.06f;
 
             gameFloor -= 1;
 
             if(gameFloor == (int)(maxGameFloor*0.75))
             {
-                // MEET 5 SNIPERS
+                SceneManager.LoadScene("MonsterParty"); 
             }
             else if (gameFloor == (int)(maxGameFloor*0.50))
             {
@@ -74,7 +94,7 @@ public class GameState : ScriptableObject
             }
             else if (gameFloor == 0)
             {
-                // FINAL BOSS
+                SceneManager.LoadScene("FinalBoss");
             }
             else
             {
@@ -125,5 +145,10 @@ public class GameState : ScriptableObject
     {
         playerWeaponUpgrades.Add(upgradeType);
         gameController.playerControl.UpgradePlayerWeapon(upgradeType);
+    }
+
+    public EnemyType GetEnemyToSpawn()
+    {
+        return enemyTypes[Random.Range(0, enemyTypes.Count)];
     }
 }

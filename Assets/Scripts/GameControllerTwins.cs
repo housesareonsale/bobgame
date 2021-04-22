@@ -17,10 +17,6 @@ public class GameControllerTwins : GameController
     public Weapon hRGuyFredWeaponObj;
     public Weapon hRGuyJackWeaponObj;
 
-    [Header("Events")]
-    [Space]
-    public UnityEvent deathEvent;
-
     TwinBossDialogState twinBossDialogState;
 
     void Start()
@@ -33,6 +29,7 @@ public class GameControllerTwins : GameController
         currNumEnemies = 0;
         cutScene = false;
         elevator.locked = true;
+        audioController = GameObject.FindGameObjectWithTag("AudioController").GetComponent<AudioController>(); 
 
         // Update player here 
         playerControl.levelGenerationDone = true;
@@ -69,6 +66,7 @@ public class GameControllerTwins : GameController
                 TwoTwinsKilled();
                 break;
             case TwinBossDialogState.TWO_DIED:
+                audioController.PlayNormalMusic();
                 twinBossDialogState = TwinBossDialogState.FIGHT_END;
                 break;
             default:
@@ -88,6 +86,7 @@ public class GameControllerTwins : GameController
         SpawnBoss(true, 1f, 3f);
         SpawnBoss(false, 1f, 3f);
         twinBossContinued.TriggerDialogue(); 
+        audioController.PlayTwinBossMusic();
         twinBossDialogState = TwinBossDialogState.INTRO_CONTINUED;
     }
 

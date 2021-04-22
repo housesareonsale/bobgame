@@ -946,7 +946,7 @@ MonoBehaviour:
   friendly: 0
   fireEffect: 0
   numProjectiles: 4
-  sizeIncrease: 0
+  sizeIncrease: 1
 --- !u!114 &9191867040288984253
 MonoBehaviour:
   m_ObjectHideFlags: 0

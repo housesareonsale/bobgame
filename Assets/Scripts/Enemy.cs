@@ -70,8 +70,7 @@ public class Enemy : MonoBehaviour
         {
             if(timeTillDespawn <= 0 && !boss)
             {
-                gameState.EnemyDied(0);
-                Destroy(gameObject);
+                Die(true);
             }
 
             switch(state)
@@ -144,25 +143,28 @@ public class Enemy : MonoBehaviour
     # region Enemy Health
     public void TakeDamage(int damage, bool burn = false)
     {
-        health -= damage;
-
-        var renderer = gameObject.GetComponent<Renderer>();
-        DamageExtra();
-
-        GameObject damagePopup = Instantiate(damagePopupComponent, transform.position + new Vector3(0.5f, 0.5f, 0), Quaternion.identity);
-        DamagePopup damagePopupObj = damagePopup.GetComponent<DamagePopup>();
-        damagePopupObj.Setup(damage, false, burn);
-
-        float amount = (health) / (float)maxHealth;
-        healthBar.transform.localScale = new Vector3(
-            amount, 
-            healthBar.transform.localScale.y, 
-            healthBar.transform.localScale.z
-        );
-
-        if (health <= 0)
+        if(!cutScene)
         {
-            Die();
+            health -= damage;
+
+            var renderer = gameObject.GetComponent<Renderer>();
+            DamageExtra();
+
+            GameObject damagePopup = Instantiate(damagePopupComponent, transform.position + new Vector3(0.5f, 0.5f, 0), Quaternion.identity);
+            DamagePopup damagePopupObj = damagePopup.GetComponent<DamagePopup>();
+            damagePopupObj.Setup(damage, false, burn);
+
+            float amount = (health) / (float)maxHealth;
+            healthBar.transform.localScale = new Vector3(
+                amount, 
+                healthBar.transform.localScale.y, 
+                healthBar.transform.localScale.z
+            );
+
+            if (health <= 0)
+            {
+                Die(false);
+            }
         }
     }
 
@@ -174,23 +176,27 @@ public class Enemy : MonoBehaviour
         // Delete the object if the health is zero
         if(health <= 0)
         {
-            Die();
+            Die(false);
         }
     }
 
-    void Die()
+    void Die(bool despawn = false)
     {
-        screenShake.Shake(0.01f);
-        Instantiate(enemyDeathParticle, transform.position, Quaternion.identity);
+        if(!despawn)
+        {
+            screenShake.Shake(0.01f);
+            Instantiate(enemyDeathParticle, transform.position, Quaternion.identity);
+        }
 
         if(!dead)
         {
+            int currenyToDrop = despawn ? 0 : currenyDrop;
             dead = true;
             if(deathEvent != null)
             {
                 deathEvent.Invoke();
             }
-            gameState.EnemyDied(currenyDrop);
+            gameState.EnemyDied(currenyToDrop);
             Destroy(gameObject);
         }
     }
