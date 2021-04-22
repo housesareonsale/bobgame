@@ -13,22 +13,22 @@ MonoBehaviour:
   m_Name: GameState
   m_EditorClassIdentifier: 
   maxGameFloor: 10
-  gameFloor: 10
+  gameFloor: 0
   maxNumEnemies: 5
   gameController: {fileID: 0}
   playerLocation: {fileID: 0}
-  attackIncreased: 0
-  healthIncreased: 0
-  currHealth: 0
-  firerateIncreased: 0.6399999
-  attackcost: 100
-  fireratecost: 100
-  maxhealthcost: 100
-  regencost: 100
-  enemyHealthIncrease: 0
-  enemyDamageIncrease: 0
-  enemyFirerateIncrease: 0
-  playerWeaponUpgrades: 02000000020000000200000002000000020000000200000002000000020000000200000002000000010000000100000001000000010000000100000001000000010000000100000001000000
+  attackIncreased: 35
+  healthIncreased: 60
+  currHealth: 195
+  firerateIncreased: 1.9200003
+  attackcost: 3200
+  fireratecost: 6400
+  maxhealthcost: 1600
+  regencost: 176
+  enemyHealthIncrease: 100
+  enemyDamageIncrease: 20
+  enemyFirerateIncrease: -0.06
+  playerWeaponUpgrades: 01000000010000000100000000000000000000000000000002000000
   enemyTypes: 00000000000000000000000000000000010000000100000001000000030000000300000002000000
-  currentCurreny: 60
-  currentLevel: Start
+  currentCurreny: 1060
+  currentLevel: Main Screen
