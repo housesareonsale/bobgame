@@ -24,6 +24,7 @@ public class GameController : MonoBehaviour
     public DialogueTrigger firstFloorStart;
     public DialogueTrigger secondFloorStart;
     public AudioController audioController;
+    public AudioSource audioSource;
 
     [Header("Events")]
     [Space]
@@ -35,6 +36,7 @@ public class GameController : MonoBehaviour
     void Start()
     {
         gameState.gameController = gameObject.GetComponent<GameController>();
+        audioSource = gameObject.GetComponent<AudioSource>();
         gameState.playerLocation = playerControl.transform;
         gameFloor = gameState.gameFloor;
         floor.text = "Floor " + gameState.gameFloor.ToString();
@@ -51,6 +53,7 @@ public class GameController : MonoBehaviour
         if(gameState.currHealth != 0)
         {
             playerControl.player.health = gameState.currHealth;
+            playerControl.player.HandleHealthBar();
         }
 
         if(gameFloor == gameState.maxGameFloor - 1)
@@ -176,9 +179,9 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void EnemyDied()
+    public void EnemyDied(AudioClip deathSound)
     {
-        // play enemy death music here
+        audioSource.PlayOneShot(deathSound, 0.50f);
         currNumEnemies -= 1;
     }
 
@@ -235,4 +238,16 @@ public class GameController : MonoBehaviour
         gameDialogState = GameDialogState.SECOND_FLOOR_START;
     }
     #endregion
+
+    public void PlayerDied()
+    {
+        audioController.PlaySadMusic();
+        playerControl.levelGenerationDone = false;
+        Invoke("GoToLoseScreen", 5f);
+    }
+
+    public void GoToLoseScreen()
+    {
+        gameState.LoseScreen();
+    }
 }

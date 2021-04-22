@@ -19,6 +19,7 @@ public class GameControllerBenDover : GameController
     void Start()
     {
         gameState.gameController = gameObject.GetComponent<GameController>();
+        audioSource = gameObject.GetComponent<AudioSource>();
         gameState.playerLocation = playerControl.transform;
         gameFloor = gameState.gameFloor;
         floor.text = "Floor " + gameState.gameFloor.ToString();
@@ -36,6 +37,7 @@ public class GameControllerBenDover : GameController
         if(gameState.currHealth != 0)
         {
             playerControl.player.health = gameState.currHealth;
+            playerControl.player.HandleHealthBar();
         }
 
         audioController = GameObject.FindGameObjectWithTag("AudioController").GetComponent<AudioController>(); 

@@ -64,12 +64,14 @@ public class DialogueManager : MonoBehaviour
             shaker.Shake(0.8f);
         }
 
-        if(currentCoroutine != null)
-        {
-            StopCoroutine(currentCoroutine);
-        }
+        textBox.text = dialogue.sentence;
 
-        currentCoroutine = StartCoroutine(TypeSentence(dialogue.sentence));
+        // if(currentCoroutine != null)
+        // {
+        //     StopCoroutine(currentCoroutine);
+        // }
+
+        // currentCoroutine = StartCoroutine(TypeSentence(dialogue.sentence));
     }
 
     IEnumerator TypeSentence(string sentence)

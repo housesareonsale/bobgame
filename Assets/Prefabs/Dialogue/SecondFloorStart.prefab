@@ -45,6 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conversation:
   - name: John Dough
-    sentence: Damn what the hell just happended in the elevator. I have a feeling
-      this will be happening on every floor. I should try finding the next elevator.
+    sentence: 'Damn what the hell just happended in the elevator. I have a feeling
+      this will be happening on every floor. Almost like its the theme of some game.
+      I should try finding the next elevator. '
     shakeScreen: 0

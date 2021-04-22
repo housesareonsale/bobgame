@@ -11,28 +11,55 @@ public class Player : MonoBehaviour
     public ScreenShake screenShake;
     public GameObject  damagePopupComponent;
     public GameObject fireDamageParticle;
+    public GameObject deathParticle;
+    public float invincibilityMaxTimer = 0.5f;
+
+    bool timeSlowed = false;
+    bool invincibility = false;
+    float invincibilityTimer = 0f;
+    bool died = false;
 
     void Start()
     {
         health = maxHealth;
     }
 
-    public void TakeDamage(int damage, bool shake = true)
+    void Update()
     {
-        health -= damage;        
-
-        if(shake)
+        invincibilityTimer -= Time.deltaTime;
+        if(invincibilityTimer <= 0)
         {
-            screenShake.Shake(0.05f);
+            invincibility = false;
         }
+    }
 
-        GameObject damagePopup = Instantiate(damagePopupComponent, transform.position + new Vector3(0.5f, 0.5f, 0), Quaternion.identity);
-        DamagePopup damagePopupObj = damagePopup.GetComponent<DamagePopup>();
-        damagePopupObj.Setup(damage, true, false);
+    public void TakeDamage(int damage, bool shake = true, bool burn = false)
+    {
+        if(burn || !invincibility)
+        {
+            invincibility = true;
+            invincibilityTimer = invincibilityMaxTimer;
+            health -= damage;        
 
-        HandleHealthBar();
-        if(health < 0){
-            Die();
+            if(shake)
+            {
+                screenShake.Shake(0.05f);
+            }
+
+            GameObject damagePopup = Instantiate(damagePopupComponent, transform.position + new Vector3(0.5f, 0.5f, 0), Quaternion.identity);
+            DamagePopup damagePopupObj = damagePopup.GetComponent<DamagePopup>();
+            damagePopupObj.Setup(damage, true, false);
+
+            if(health < 0){
+                if(!died)
+                {
+                    died = true;
+                    Instantiate(deathParticle, transform.position, Quaternion.identity);
+                    Die();
+                }
+            } else {
+                HandleHealthBar();
+            }
         }
     }
 
@@ -54,10 +81,24 @@ public class Player : MonoBehaviour
 
     void Die()
     {
-        // gamestate.LoseGame();
+        gamestate.LoseGame();
     }
 
-    void HandleHealthBar()
+    void SlowTime()
+    {
+        if(!timeSlowed)
+        {
+            timeSlowed = true;
+            Time.timeScale = 0.25f;
+            Invoke("NormalTime", 1f);
+        }   
+    }
+    void NormalTime()
+    {
+        Time.timeScale = 1f;
+    }
+
+    public void HandleHealthBar()
     {
         float amount = (health) / (float)maxHealth;
 
@@ -80,7 +121,7 @@ public class Player : MonoBehaviour
 
         while(Time.realtimeSinceStartup < startTime + 0.2f)
         {
-            TakeDamage(severity, false);
+            TakeDamage(severity, false, true);
             yield return null;
         }
     }

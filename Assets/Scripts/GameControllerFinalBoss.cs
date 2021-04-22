@@ -9,12 +9,15 @@ public class GameControllerFinalBoss : GameController
     public DialogueTrigger finalBossContinued;
     public DialogueTrigger finalBossEnd;
     public Enemy finalBoss;
+    public GameObject gameExit;
+    public Transform gameExitLocation;
 
     FinalBossDialogueState finalBossDialogueState;
 
     void Start()
     {
         gameState.gameController = gameObject.GetComponent<GameController>();
+        audioSource = gameObject.GetComponent<AudioSource>();
         gameState.playerLocation = playerControl.transform;
         gameFloor = gameState.gameFloor;
         floor.text = "Final Floor";
@@ -31,6 +34,7 @@ public class GameControllerFinalBoss : GameController
         if(gameState.currHealth != 0)
         {
             playerControl.player.health = gameState.currHealth;
+            playerControl.player.HandleHealthBar();
         }
 
         StartFinalBoss();
@@ -57,6 +61,12 @@ public class GameControllerFinalBoss : GameController
             case FinalBossDialogueState.BOSS_FIGHT:
                 EndFinalBoss();
                 break;
+            case FinalBossDialogueState.BEAT_BOSS:
+                GetExit();
+                break;
+            case FinalBossDialogueState.FIGHT_END:
+                gameState.WinGame();
+                break;
         }
     }
 
@@ -80,4 +90,13 @@ public class GameControllerFinalBoss : GameController
         finalBossEnd.TriggerDialogue();
         finalBossDialogueState = FinalBossDialogueState.BEAT_BOSS;
     }
+
+    void GetExit()
+    {
+        GameObject exit = Instantiate(gameExit, gameExitLocation.position, Quaternion.identity);
+        ColliderTrigger exitCollider = exit.GetComponent<ColliderTrigger>();
+        exitCollider.gameController = gameState.gameController;
+        finalBossDialogueState = FinalBossDialogueState.FIGHT_END;
+    }
+
 }

@@ -153,4 +153,32 @@ public class DamagePopup : MonoBehaviour
         sortingOrder++;
         textMesh.sortingOrder = sortingOrder;
     }
+
+    public void SetupVendingMachineUpgrade(UpgradeType upgradeType)
+    {
+        damageText = false;
+
+        switch(upgradeType)
+        {
+            default:
+            case UpgradeType.NUM_PROJECTILES:
+                textMesh.text = "Ah cool! more stapler pins, I can now shoot more at a time.";
+                break;
+            case UpgradeType.BIGGER_PROJECTILES:
+                textMesh.text = "Nice this new stapler pin box seems to have bigger stapler pins.";
+                break;
+            case UpgradeType.FIRE:
+                textMesh.text = "Goddam match sticks, I can use this to turn my stapler pins into firey pins.";
+                break;
+        }
+
+        RectTransform rt = gameObject.GetComponent<RectTransform>();
+        rt.sizeDelta = new Vector2(100, 100);
+
+        textColor = new Color32(221, 160, 221,255);
+        textMesh.faceColor = textColor;
+
+        sortingOrder++;
+        textMesh.sortingOrder = sortingOrder;    
+    }
 }

@@ -8,9 +8,12 @@ public class Projectile : MonoBehaviour
     public int damage;
     public float projectileDuration;
     public GameObject collisionParticle;
+    public AudioSource audioSource;
+    public AudioClip startSound;
 
     private void Start()
     {
+        audioSource.PlayOneShot(startSound, 0.10f);
         Invoke("DestroyProjectile", projectileDuration);
     }
 
@@ -54,7 +57,6 @@ public class Projectile : MonoBehaviour
 
     void DestroyProjectile()
     {
-        // play some sound effect / add particle effects
         Instantiate(collisionParticle, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }

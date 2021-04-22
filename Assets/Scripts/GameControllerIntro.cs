@@ -16,6 +16,7 @@ public class GameControllerIntro : GameController
     {
         gameState.Initialize();
         gameState.gameController = gameObject.GetComponent<GameController>();
+        audioSource = gameObject.GetComponent<AudioSource>();
         gameState.playerLocation = playerControl.transform;
         gameFloor = gameState.gameFloor;
         floor.text = "Floor " + gameState.gameFloor.ToString();
@@ -36,6 +37,7 @@ public class GameControllerIntro : GameController
                 break;
             case IntroDialogueState.INTRO_CONTINUED:
                 playerControl.levelGenerationDone = true;
+                denverCol.cutScene = false;
                 introDialogueState = IntroDialogueState.OFF_DENVER_COL;
                 break;
             case IntroDialogueState.OFF_DENVER_COL:

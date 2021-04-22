@@ -61,6 +61,7 @@
     <Compile Include="Assets\Scripts\Projectile.cs" />
     <Compile Include="Assets\Scripts\EnemyParts.cs" />
     <Compile Include="Assets\Scripts\GameControllerMonsterParty.cs" />
+    <Compile Include="Assets\Scripts\GameControllerFinalBoss.cs" />
     <Compile Include="Assets\Scripts\UpgradePanel.cs" />
     <Compile Include="Assets\Scripts\EnemyAnimator.cs" />
     <Compile Include="Assets\Scripts\SprayGuy.cs" />
@@ -77,12 +78,14 @@
     <Compile Include="Assets\Scripts\HRGuy.cs" />
     <Compile Include="Assets\Scripts\DialogueManager.cs" />
     <Compile Include="Assets\Scripts\PlayerControl.cs" />
+    <Compile Include="Assets\Scripts\ColliderTrigger.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\Elevator.cs" />
     <Compile Include="Assets\Scripts\PlayerFollow.cs" />
     <Compile Include="Assets\Scripts\EnemySpriteGenerator.cs" />
     <Compile Include="Assets\Scripts\SpawnRoom.cs" />
     <Compile Include="Assets\Scripts\GameControllerTwins.cs" />
+    <Compile Include="Assets\Scripts\AudioController.cs" />
     <Compile Include="Assets\Scripts\Enums.cs" />
     <Compile Include="Assets\Scripts\GameState.cs" />
     <Compile Include="Assets\Scripts\RoomType.cs" />
@@ -94,9 +97,6 @@
     <Compile Include="Assets\Scripts\Weapon.cs" />
     <Compile Include="Assets\Scripts\Obstacle.cs" />
     <Compile Include="Assets\Scripts\Util.cs" />
-    <Compile Include="Assets\Scripts\GameControllerFinalBoss.cs" />
-    <Compile Include="Assets\Scripts\ColliderTrigger.cs" />
-    <Compile Include="Assets\Scripts\AudioController.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

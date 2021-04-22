@@ -15,6 +15,7 @@ public class GameControllerElevator : GameController
     void Start()
     {
         gameState.gameController = gameObject.GetComponent<GameController>();
+        audioSource = gameObject.GetComponent<AudioSource>();
         gameState.playerLocation = playerControl.transform;
         gameFloor = gameState.gameFloor;
         floor.text = "Floor " + gameState.gameFloor.ToString();
@@ -33,6 +34,7 @@ public class GameControllerElevator : GameController
         if(gameState.currHealth != 0)
         {
             playerControl.player.health = gameState.currHealth;
+            playerControl.player.HandleHealthBar();
         }
 
         InvokeRepeating("SpawnForElevator", 1f, 0.3f);

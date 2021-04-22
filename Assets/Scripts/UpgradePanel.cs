@@ -13,18 +13,20 @@ public class UpgradePanel : MonoBehaviour
     public TextMeshProUGUI firerate;
     public TextMeshProUGUI maxhealth;
     public TextMeshProUGUI regenhealth;
+    public AudioSource audioSource;
+    public AudioClip gotUpgrade;
 
     void Start()
     {
-        attack.text = "damage\n" + gamestate.attackcost.ToString();
-        firerate.text = "firerate\n" + gamestate.fireratecost.ToString();
-        maxhealth.text = "max health\n" + gamestate.maxhealthcost.ToString();
-        regenhealth.text = "regen health\n" + gamestate.regencost.ToString();
+        attack.text = gamestate.attackcost.ToString();
+        firerate.text = gamestate.fireratecost.ToString();
+        maxhealth.text = gamestate.maxhealthcost.ToString();
+        regenhealth.text = gamestate.regencost.ToString();
     }
 
     void Update()
     {
-        points.text = gamestate.currentCurreny + " points";
+        points.text = gamestate.currentCurreny.ToString();
     }
 
     public void OnAttackUpgrade()
@@ -38,7 +40,8 @@ public class UpgradePanel : MonoBehaviour
             gamestate.UpgradePlayerAttack();
             gamestate.attackIncreased += attackAmoutIncreased;
             gamestate.attackcost = (int)(gamestate.attackcost * attackcostIncrease);
-            attack.text = "damage\n" + gamestate.attackcost.ToString();
+            attack.text = gamestate.attackcost.ToString();
+            audioSource.PlayOneShot(gotUpgrade, 0.50f);
         }
     }
  
@@ -53,7 +56,8 @@ public class UpgradePanel : MonoBehaviour
             gamestate.UpgradePlayerFireRate();
             gamestate.firerateIncreased += firerateAmoutIncreased;
             gamestate.fireratecost = (int)(gamestate.fireratecost * fireratecostIncrease);
-            firerate.text = "firerate\n" + gamestate.fireratecost.ToString();
+            firerate.text = gamestate.fireratecost.ToString();
+            audioSource.PlayOneShot(gotUpgrade, 0.50f);
         }
     }
 
@@ -68,7 +72,8 @@ public class UpgradePanel : MonoBehaviour
             gamestate.healthIncreased += healthAmoutIncreased ;
             gamestate.UpgradePlayerHealth(healthAmoutIncreased);
             gamestate.maxhealthcost = (int)(gamestate.maxhealthcost * maxhealthcostIncrease);
-            maxhealth.text = "max health\n" + gamestate.maxhealthcost.ToString();
+            maxhealth.text = gamestate.maxhealthcost.ToString();
+            audioSource.PlayOneShot(gotUpgrade, 0.50f);
         }
     }
  
@@ -82,7 +87,8 @@ public class UpgradePanel : MonoBehaviour
             gamestate.currentCurreny -= gamestate.regencost;
             gamestate.RegenPlayerAttack(healthAmoutRegen);
             gamestate.regencost = (int)(gamestate.regencost * regencostIncrease);
-            regenhealth.text = "regen health\n" + gamestate.regencost.ToString();
+            regenhealth.text = gamestate.regencost.ToString();
+            audioSource.PlayOneShot(gotUpgrade, 0.50f);
         }
     }
  }

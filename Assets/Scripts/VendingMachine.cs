@@ -6,7 +6,9 @@ public class VendingMachine : MonoBehaviour
 {
     public GameState gameState;
     public GameObject textPopupComponent;
-    
+    public AudioSource audioSource;
+    public AudioClip audioClip;
+
     bool upgraded = false;
 
     public void OnCollisionEnter2D(Collision2D collision)
@@ -21,7 +23,7 @@ public class VendingMachine : MonoBehaviour
                 GameObject textPopup = Instantiate(textPopupComponent, transform.position + new Vector3(0.5f, 0.5f, 0), Quaternion.identity);
                 DamagePopup textPopupObj = textPopup.GetComponent<DamagePopup>();
                 textPopupObj.SetupVendingMachine();
-                Destroy(textPopup, 9f);
+                Destroy(textPopup, 6f);
             }
         }
 
@@ -32,10 +34,28 @@ public class VendingMachine : MonoBehaviour
         if(!upgraded)
         {
             int upgradeChoice = Random.Range(0, 3);
+            UpgradeType upgradeType;
 
-            if(upgradeChoice == 0) gameState.WeaponUpgradeCollected(UpgradeType.NUM_PROJECTILES);
-            else if(upgradeChoice == 1) gameState.WeaponUpgradeCollected(UpgradeType.BIGGER_PROJECTILES);
-            else gameState.WeaponUpgradeCollected(UpgradeType.FIRE);
+            if(upgradeChoice == 0) 
+            {
+                upgradeType = UpgradeType.NUM_PROJECTILES;
+            }
+            else if(upgradeChoice == 1) 
+            {
+                upgradeType = UpgradeType.BIGGER_PROJECTILES;
+            }
+            else 
+            {
+                upgradeType = UpgradeType.FIRE;
+            }
+
+
+            gameState.WeaponUpgradeCollected(upgradeType);
+
+            GameObject textPopup = Instantiate(textPopupComponent, transform.position + new Vector3(0.5f, 0.5f, 0), Quaternion.identity);
+            DamagePopup textPopupObj = textPopup.GetComponent<DamagePopup>();
+            textPopupObj.SetupVendingMachineUpgrade(upgradeType);
+            audioSource.PlayOneShot(audioClip, 0.50f);
 
             upgraded = true;
         }

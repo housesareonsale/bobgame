@@ -29,6 +29,8 @@ public class Enemy : MonoBehaviour
     public bool boss = false;
     public bool cutScene = false;
     public bool dead = false;
+    public AudioSource audioSource;
+    public AudioClip enemyDeathSound;
 
     [Header("Events")]
     [Space]
@@ -196,7 +198,8 @@ public class Enemy : MonoBehaviour
             {
                 deathEvent.Invoke();
             }
-            gameState.EnemyDied(currenyToDrop);
+
+            gameState.EnemyDied(currenyToDrop, enemyDeathSound);
             Destroy(gameObject);
         }
     }

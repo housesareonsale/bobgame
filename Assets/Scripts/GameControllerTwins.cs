@@ -22,6 +22,7 @@ public class GameControllerTwins : GameController
     void Start()
     {
         gameState.gameController = gameObject.GetComponent<GameController>();
+        audioSource = gameObject.GetComponent<AudioSource>();
         gameState.playerLocation = playerControl.transform;
         gameFloor = gameState.gameFloor;
         floor.text = "Floor " + gameState.gameFloor.ToString();
@@ -40,6 +41,7 @@ public class GameControllerTwins : GameController
         if(gameState.currHealth != 0)
         {
             playerControl.player.health = gameState.currHealth;
+            playerControl.player.HandleHealthBar();
         }
 
         Invoke("StartTwinInteraction", 5f);        

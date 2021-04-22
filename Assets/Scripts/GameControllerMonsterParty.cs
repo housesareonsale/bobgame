@@ -17,6 +17,7 @@ public class GameControllerMonsterParty : GameController
     void Start()
     {
         gameState.gameController = gameObject.GetComponent<GameController>();
+        audioSource = gameObject.GetComponent<AudioSource>();
         gameState.playerLocation = playerControl.transform;
         gameFloor = gameState.gameFloor;
         floor.text = "Floor " + gameState.gameFloor.ToString();
@@ -35,6 +36,7 @@ public class GameControllerMonsterParty : GameController
         if(gameState.currHealth != 0)
         {
             playerControl.player.health = gameState.currHealth;
+            playerControl.player.HandleHealthBar();
         }
 
         audioController = GameObject.FindGameObjectWithTag("AudioController").GetComponent<AudioController>(); 
@@ -87,6 +89,7 @@ public class GameControllerMonsterParty : GameController
     
     void EndMonsterParty()
     {
+        elevator.locked = false;
         monsterPartyEnd.TriggerDialogue();
         monsterPartyDialogState = MonsterPartyDialogState.BEAT_BOSS;
     }

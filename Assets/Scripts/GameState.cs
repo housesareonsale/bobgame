@@ -25,6 +25,7 @@ public class GameState : ScriptableObject
     public List<UpgradeType> playerWeaponUpgrades;
     public List<EnemyType> enemyTypes;
     public int currentCurreny = 0;
+    public string currentLevel;
 
 
     public void Initialize(int startFloor = 10)
@@ -42,36 +43,37 @@ public class GameState : ScriptableObject
         regencost = 100;
         playerWeaponUpgrades = new List<UpgradeType>();
         currentCurreny = 0;
+        InitEnemyType();
+    }
+
+    public void InitEnemyType()
+    {
         enemyTypes = new List<EnemyType>(); 
         enemyTypes.Add(EnemyType.BAD_MAN);
+        enemyTypes.Add(EnemyType.BAD_MAN);
+        enemyTypes.Add(EnemyType.BAD_MAN);
+        enemyTypes.Add(EnemyType.BAD_MAN);
+        enemyTypes.Add(EnemyType.SPRAY_MAN);
+        enemyTypes.Add(EnemyType.SPRAY_MAN);
+        enemyTypes.Add(EnemyType.SPRAY_MAN);
+        enemyTypes.Add(EnemyType.HR_MAN);
+        enemyTypes.Add(EnemyType.HR_MAN);
+        enemyTypes.Add(EnemyType.WIZ_MAN);
     }
 
     public void NextLevel(bool exiting)
     {
         if(!exiting)
         {
-            if(gameFloor < (int)(maxGameFloor*0.75))
-            {
-                enemyTypes.Add(EnemyType.SPRAY_MAN);
-            }
-            else if (gameFloor < (int)(maxGameFloor*0.50))
-            {
-                enemyTypes.Add(EnemyType.HR_MAN);
-            }
-            else if (gameFloor < (int)(maxGameFloor*0.25))
-            {
-                enemyTypes.Add(EnemyType.WIZ_MAN);
-            }
-            else
-            {
-                enemyTypes.Add(EnemyType.BAD_MAN);
-            }
-
+            currentLevel = "Elevator";
             SceneManager.LoadScene("Elevator");
         }
         else
         {
             currHealth = gameController.playerControl.player.health;
+            currHealth += 100;
+            currHealth = Mathf.Min(currHealth, gameController.playerControl.player.maxHealth);
+
             int randUpgrade = Random.Range(0,3);
 
             enemyDamageIncrease += 20;
@@ -82,43 +84,70 @@ public class GameState : ScriptableObject
 
             if(gameFloor == (int)(maxGameFloor*0.75))
             {
+                currentLevel = "MonsterParty";
                 SceneManager.LoadScene("MonsterParty"); 
             }
             else if (gameFloor == (int)(maxGameFloor*0.50))
             {
+                currentLevel = "BenDover";
                 SceneManager.LoadScene("BenDover");
             }
             else if (gameFloor == (int)(maxGameFloor*0.25))
             {
+                currentLevel = "TwinBoss";
                 SceneManager.LoadScene("TwinBoss");
             }
             else if (gameFloor == 0)
             {
+                currentLevel = "FinalBoss";
                 SceneManager.LoadScene("FinalBoss");
             }
             else
             {
+                currentLevel = "Game";
                 SceneManager.LoadScene("Game");
             }
         }
     }
 
-    public void EnemyDied(int currenyDrop)
+    public void EnemyDied(int currenyDrop, AudioClip deathSound)
     {
         currentCurreny += currenyDrop;
-        gameController.EnemyDied();
+        gameController.EnemyDied(deathSound);
     }
 
     public void StartGame(){
+        currentLevel = "Start";
         SceneManager.LoadScene("Start");
     }
 
     public void LoseGame(){
+        gameController.PlayerDied();
+    }
+
+    public void LoseScreen()
+    {
         SceneManager.LoadScene("Lose");
     }
 
-    public void MainScreen(){
+    public void WinGame()
+    {
+        SceneManager.LoadScene("Win");
+    }
+
+    public void Retry(){
+        currHealth = 0;
+        SceneManager.LoadScene(currentLevel);
+    }
+
+    public void Restart(){
+        currentLevel = "Main Screen";
         SceneManager.LoadScene("Main Screen");
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 
     public void UpgradePlayerAttack()
