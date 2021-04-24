@@ -93,7 +93,6 @@ public class Weapon : MonoBehaviour
     {
         for(int i = 0; i < numProjectiles; i++)
         {
-            Debug.Log("this is called by player");
             Vector3 offset = new Vector3((Random.Range(1f, 3f) / 10), (Random.Range(0.5f, 0.8f) / 10), 0) * sizeIncrease;
             Vector3 direction = firepoint.right + offset;
             Shoot(direction, false);

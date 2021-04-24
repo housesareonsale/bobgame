@@ -12,6 +12,7 @@ public class GameControllerFinalBoss : GameController
     public GameObject gameExit;
     public Transform gameExitLocation;
 
+    Vector3 exitLocation;
     FinalBossDialogueState finalBossDialogueState;
 
     void Start()
@@ -25,6 +26,7 @@ public class GameControllerFinalBoss : GameController
         currNumEnemies = 0;
         cutScene = false;
         audioController = GameObject.FindGameObjectWithTag("AudioController").GetComponent<AudioController>(); 
+        exitLocation = gameExitLocation.position;
 
         // Update player here
         playerControl.playerWeapon.damage += gameState.attackIncreased;
@@ -93,10 +95,9 @@ public class GameControllerFinalBoss : GameController
 
     void GetExit()
     {
-        GameObject exit = Instantiate(gameExit, gameExitLocation.position, Quaternion.identity);
+        GameObject exit = Instantiate(gameExit, exitLocation, Quaternion.identity);
         ColliderTrigger exitCollider = exit.GetComponent<ColliderTrigger>();
         exitCollider.gameController = gameState.gameController;
         finalBossDialogueState = FinalBossDialogueState.FIGHT_END;
     }
-
 }

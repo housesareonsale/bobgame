@@ -51,7 +51,31 @@ public class BenDover : Enemy
 
     public override void DamageExtra()
     {
-        if(!notBen && health <= (maxHealth/2) && !messaged)
+        if(notBen)
+        {
+            FinalBossDamageExtra();
+        }
+        else
+        {
+            BenDoverDamageExtra();
+        }
+    }
+
+    void BenDoverDamageExtra()
+    {
+        if(health <= (maxHealth/2) && !messaged)
+        {
+            messaged = true;
+            if(deathEvent != null)
+            {
+                deathEvent.Invoke();
+            }
+        }
+    }
+
+    void FinalBossDamageExtra()
+    {
+        if(health <= 0 && !messaged)
         {
             messaged = true;
             if(deathEvent != null)

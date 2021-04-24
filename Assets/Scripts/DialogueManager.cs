@@ -12,6 +12,7 @@ public class DialogueManager : MonoBehaviour
     public GameController gameController;
     public GameObject dialogBox;
     Queue<Dialogue> dialogues;
+    public bool pressed = false;
 
     Coroutine currentCoroutine;
     bool continueEvent = false;
@@ -55,7 +56,6 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-
         Dialogue dialogue = dialogues.Dequeue();
         nameBox.text = dialogue.name;
 
@@ -64,14 +64,12 @@ public class DialogueManager : MonoBehaviour
             shaker.Shake(0.8f);
         }
 
-        textBox.text = dialogue.sentence;
+        if(currentCoroutine != null)
+        {
+            StopCoroutine(currentCoroutine);
+        }
 
-        // if(currentCoroutine != null)
-        // {
-        //     StopCoroutine(currentCoroutine);
-        // }
-
-        // currentCoroutine = StartCoroutine(TypeSentence(dialogue.sentence));
+        currentCoroutine = StartCoroutine(TypeSentence(dialogue.sentence));
     }
 
     IEnumerator TypeSentence(string sentence)
@@ -86,12 +84,12 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
-        boxAnimator.SetTrigger("EndDigaloue");
-
         if(continueEvent)
         {
+            boxAnimator.SetTrigger("EndDigaloue");
             gameController.CotinueEvent();
             continueEvent = false;
+            dialogBox.SetActive(false);
         }
     }
 }
